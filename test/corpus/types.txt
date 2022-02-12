@@ -1,0 +1,81 @@
+================================================================================
+variable
+================================================================================
+module Test exports (..);
+
+x : a = x;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_variable))
+    expression: (expression_variable)))
+
+================================================================================
+constructor
+================================================================================
+module Test exports (..);
+
+x : My.Unit = x;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor
+        (qualifier)))
+    expression: (expression_variable)))
+
+================================================================================
+call
+================================================================================
+module Test exports (..);
+
+x : R.Result(Int, a) = x;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor
+        (qualifier)))
+    (ERROR
+      (type_constructor)
+      (type_variable))
+    expression: (expression_variable)))
+
+================================================================================
+function
+================================================================================
+module Test exports (..);
+
+x : (Int) -> (a, b) -> Int = x;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_function
+        parameter: (type_constructor)
+        return_type: (type_function
+          parameter: (type_variable)
+          parameter: (type_variable)
+          return_type: (type_constructor))))
+    expression: (expression_variable)))

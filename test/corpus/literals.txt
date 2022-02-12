@@ -1,0 +1,136 @@
+================================================================================
+unit
+================================================================================
+module Test exports (..);
+
+x = unit;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_unit)))
+
+================================================================================
+true
+================================================================================
+module Test exports (..);
+
+x = true;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_true)))
+
+================================================================================
+false
+================================================================================
+module Test exports (..);
+
+x = false;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_false)))
+
+================================================================================
+string
+================================================================================
+module Test exports (..);
+
+x = "string";
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_string)))
+
+================================================================================
+int
+================================================================================
+module Test exports (..);
+
+x = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_int)))
+
+================================================================================
+float
+================================================================================
+module Test exports (..);
+
+x = 5.0;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_float)))
+
+================================================================================
+empty array
+================================================================================
+module Test exports (..);
+
+x = [];
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_array)))
+
+================================================================================
+array
+================================================================================
+module Test exports (..);
+
+x = [
+  1,
+  2, 
+  3, 
+  4,
+];
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_array
+      element: (expression_int)
+      element: (expression_int)
+      element: (expression_int)
+      element: (expression_int))))

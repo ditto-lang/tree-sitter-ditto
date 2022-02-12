@@ -1,0 +1,1147 @@
+[
+  {
+    "type": "empty_type_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_declaration_name",
+            "named": true
+          }
+        ]
+      },
+      "variables": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_declaration_variables",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "exposing_everything",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "exposing_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exposing_type",
+          "named": true
+        },
+        {
+          "type": "exposing_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exposing_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exposing_type_constructors",
+          "named": true
+        },
+        {
+          "type": "exposing_type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exposing_type_constructors",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "exposing_type_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "exposing_value",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "expression_array",
+    "named": true,
+    "fields": {
+      "element": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_call",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_call_arguments",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_call_arguments",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "qualifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_function",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "parameter": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression_function_parameter",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "return_type_annotation",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_function_parameter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_function_parameter_name",
+            "named": true
+          }
+        ]
+      },
+      "type_annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_annotation",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_function_parameter_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "expression_variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "qualifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "foreign_value_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "value_declaration_name",
+            "named": true
+          }
+        ]
+      },
+      "type_annotation": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_annotation",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "module_header",
+    "named": true,
+    "fields": {
+      "exports": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exposing_everything",
+            "named": true
+          },
+          {
+            "type": "exposing_list",
+            "named": true
+          }
+        ]
+      },
+      "module_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "module_import",
+    "named": true,
+    "fields": {
+      "alias": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "as",
+            "named": false
+          },
+          {
+            "type": "module_import_alias",
+            "named": true
+          }
+        ]
+      },
+      "imports": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "exposing_everything",
+            "named": true
+          },
+          {
+            "type": "exposing_list",
+            "named": true
+          }
+        ]
+      },
+      "module_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_name",
+            "named": true
+          }
+        ]
+      },
+      "package": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "module_import_package",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "module_import_alias",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "module_import_package",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "module_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "qualifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "return_type_annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_call",
+          "named": true
+        },
+        {
+          "type": "type_constructor",
+          "named": true
+        },
+        {
+          "type": "type_function",
+          "named": true
+        },
+        {
+          "type": "type_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {
+      "declaration": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "empty_type_declaration",
+            "named": true
+          },
+          {
+            "type": "foreign_value_declaration",
+            "named": true
+          },
+          {
+            "type": "type_declaration",
+            "named": true
+          },
+          {
+            "type": "value_declaration",
+            "named": true
+          }
+        ]
+      },
+      "header": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_header",
+            "named": true
+          }
+        ]
+      },
+      "import": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "module_import",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_call",
+          "named": true
+        },
+        {
+          "type": "type_constructor",
+          "named": true
+        },
+        {
+          "type": "type_function",
+          "named": true
+        },
+        {
+          "type": "type_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_call",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type_call",
+            "named": true
+          },
+          {
+            "type": "type_constructor",
+            "named": true
+          },
+          {
+            "type": "type_function",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_constructor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "qualifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_declaration",
+    "named": true,
+    "fields": {
+      "constructor": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "type_declaration_constructor",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_declaration_name",
+            "named": true
+          }
+        ]
+      },
+      "variables": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_declaration_variables",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_declaration_constructor",
+    "named": true,
+    "fields": {
+      "fields": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_declaration_constructor_fields",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_declaration_constructor_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_declaration_constructor_fields",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type_call",
+            "named": true
+          },
+          {
+            "type": "type_constructor",
+            "named": true
+          },
+          {
+            "type": "type_function",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_declaration_constructor_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_declaration_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_declaration_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_declaration_variables",
+    "named": true,
+    "fields": {
+      "variable": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type_declaration_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_function",
+    "named": true,
+    "fields": {
+      "parameter": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type_call",
+            "named": true
+          },
+          {
+            "type": "type_constructor",
+            "named": true
+          },
+          {
+            "type": "type_function",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "type_call",
+            "named": true
+          },
+          {
+            "type": "type_constructor",
+            "named": true
+          },
+          {
+            "type": "type_function",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "value_declaration",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "value_declaration_name",
+            "named": true
+          }
+        ]
+      },
+      "type_annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_annotation",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "value_declaration_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "..",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "exports",
+    "named": false
+  },
+  {
+    "type": "expression_false",
+    "named": true
+  },
+  {
+    "type": "expression_float",
+    "named": true
+  },
+  {
+    "type": "expression_int",
+    "named": true
+  },
+  {
+    "type": "expression_string",
+    "named": true
+  },
+  {
+    "type": "expression_true",
+    "named": true
+  },
+  {
+    "type": "expression_unit",
+    "named": true
+  },
+  {
+    "type": "foreign",
+    "named": false
+  },
+  {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "module",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  }
+]

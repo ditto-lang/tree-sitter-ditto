@@ -1,0 +1,65 @@
+; Following the nvim-treesitter highlights for now:
+; https://github.com/nvim-treesitter/nvim-treesitter/blob/3a92d77b5684d58d777675c1863d304e0be71250/lua/nvim-treesitter/highlight.lua
+; 
+; See :h nvim-treesitter-highlights
+; 
+; Particularly the Haskell highlight queries:
+; https://github.com/nvim-treesitter/nvim-treesitter/blob/3a92d77b5684d58d777675c1863d304e0be71250/queries/haskell/highlights.scm
+
+(comment) @comment
+
+[
+  "["
+  "]"
+  "("
+  ")"
+] @punctuation.bracket
+
+[
+  ","
+  ";"
+  "|"
+] @punctuation.delimiter
+
+[
+  "module"
+  "exports"
+  "import"
+  "as"
+  "type"
+  "foreign"
+] @keyword
+
+[
+  ":"
+] @operator
+
+[
+  (exposing_everything)
+  (exposing_type_constructors)
+] @symbol
+
+(module_name) @namespace
+(module_import_alias) @namespace
+(qualifier) @namespace
+
+; types
+(exposing_type_name) @type
+(type_declaration_name) @type
+(type_declaration_constructor_name) @constructor
+(type_constructor) @type
+(type_declaration_variable) @parameter
+(type_variable) @parameter
+(type_function ("->" @type))
+
+; values
+(value_declaration_name) @function
+(expression_function ("->" @operator))
+
+; literals
+(expression_string) @string
+(expression_int) @number
+(expression_float) @float
+(expression_true) @boolean
+(expression_false) @boolean
+(expression_unit) @func.builtin

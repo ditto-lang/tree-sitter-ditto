@@ -1,0 +1,166 @@
+================================================================================
+nullary function
+================================================================================
+module Test exports (..);
+
+x = (): Int -> 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      return_type: (return_type_annotation
+        (type_constructor))
+      body: (expression_int))))
+
+================================================================================
+identity
+================================================================================
+module Test exports (..);
+
+x = (a: a): a -> a;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      parameter: (expression_function_parameter
+        name: (expression_function_parameter_name)
+        type_annotation: (type_annotation
+          (type_variable)))
+      return_type: (return_type_annotation
+        (type_variable))
+      body: (expression_variable))))
+
+================================================================================
+curried
+================================================================================
+module Test exports (..);
+
+x = (a: a): ((b) -> a) -> (b) -> a;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      parameter: (expression_function_parameter
+        name: (expression_function_parameter_name)
+        type_annotation: (type_annotation
+          (type_variable)))
+      return_type: (return_type_annotation
+        (type_function
+          parameter: (type_variable)
+          return_type: (type_variable)))
+      body: (expression_function
+        parameter: (expression_function_parameter
+          name: (expression_function_parameter_name))
+        body: (expression_variable)))))
+
+================================================================================
+nullary call
+================================================================================
+module Test exports (..);
+
+x = a();
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable)
+      arguments: (expression_call_arguments))))
+
+================================================================================
+curried call
+================================================================================
+module Test exports (..);
+
+x = a()()();
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_call
+        function: (expression_call
+          function: (expression_variable)
+          arguments: (expression_call_arguments))
+        arguments: (expression_call_arguments))
+      arguments: (expression_call_arguments))))
+
+================================================================================
+array map
+================================================================================
+module Test exports (..);
+
+map = (arr: Array(a), fn: (a) -> b): Array(b) -> [];
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      parameter: (expression_function_parameter
+        name: (expression_function_parameter_name)
+        type_annotation: (type_annotation
+          (type_call
+            function: (type_constructor)
+            argument: (type_variable))))
+      parameter: (expression_function_parameter
+        name: (expression_function_parameter_name)
+        type_annotation: (type_annotation
+          (type_function
+            parameter: (type_variable)
+            return_type: (type_variable))))
+      return_type: (return_type_annotation
+        (type_call
+          function: (type_constructor)
+          argument: (type_variable)))
+      body: (expression_array))))
+
+================================================================================
+iife
+================================================================================
+module Test exports (..);
+
+x : Int = (() -> () ->  5)()();
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor))
+    expression: (expression_call
+      function: (expression_call
+        function: (expression_function
+          body: (expression_function
+            body: (expression_int)))
+        arguments: (expression_call_arguments))
+      arguments: (expression_call_arguments))))

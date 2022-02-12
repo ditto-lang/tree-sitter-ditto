@@ -1,0 +1,67 @@
+module Foo.Bar exports (..);
+-- <- keyword
+--      ^ namespace
+--               ^ keyword
+--                       ^ symbol
+
+-- NOTE: btw
+-- TODO: finish this
+-- XXX: delete this
+-- FIXME: fix this
+
+import (some-package) Some.Module;
+-- <- keyword
+--                       ^ namespace
+--                        ^ namespace
+--                         ^ namespace
+
+import (some-other-package) Some.Other.Module as SOM;
+--                                             ^ keyword
+--                                                ^ namespace
+
+import Foo (..);
+--           ^ symbol
+import Foo.Bar (
+  Baz, 
+-- ^ type
+  Foo(..),
+--    ^ symbol
+  foo, 
+  bar, 
+);
+
+type Maybe(a) = Just(a) | Nothing;
+-- <- keyword
+--     ^ type
+--         ^ parameter
+
+five : Int = 5;
+--      ^ type
+--           ^ number 
+floaty_five : Prim.Float = 5.0;
+--             ^ namespace
+--                   ^ type
+--                          ^ float
+fives = [1, 2, 3, 4, 5,];
+
+yes = true; 
+--     ^ boolean
+no = false;
+--     ^ boolean
+g = unit;
+--   ^ func.builtin
+
+identity = (a: a): a -> a;
+-- <- function
+--             ^ parameter
+--                    ^ operator
+
+bad_map = (xs: Array(a), fn: (a) -> b): Array(b) -> [];
+--              ^ type
+--                                ^ type
+
+
+type Unknown;
+
+foreign null: Unknown;
+-- ^ keyword

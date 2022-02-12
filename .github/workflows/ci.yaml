@@ -1,0 +1,51 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  tree-sitter-test:
+    name: Run tree-sitter tests 🌳
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          #cache: "npm"   <-- need to commit a lockfile for this
+      - run: npm install
+      - run: npm test
+
+  build-crate:
+    name: Check rust bindings 🦀
+    needs: [tree-sitter-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-cargo-build-${{ hashFiles('./Cargo.lock') }}
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+
+  check-formatting:
+    name: Check formatting 💅
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          #cache: "npm"   <-- need to commit a lockfile for this
+      - run: npm install
+      - run: ./node_modules/.bin/prettier --check grammar.js
