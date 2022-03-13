@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version-file: .nvmrc
           #cache: "npm"   <-- need to commit a lockfile for this
       - run: npm install
       - run: npm test
@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version-file: .nvmrc
           #cache: "npm"   <-- need to commit a lockfile for this
       - run: npm install
       - run: ./node_modules/.bin/prettier --check grammar.js
