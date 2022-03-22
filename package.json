@@ -17,7 +17,7 @@
     "lexer",
     "incremental"
   ],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "nan": "2.15.0"
   },

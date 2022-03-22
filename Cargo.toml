@@ -7,7 +7,7 @@ keywords = ["ditto", "ditto-lang", "tree-sitter", "parser", "parsing", "lexer", 
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/ditto-lang/tree-sitter-ditto"
 edition = "2018"
-license = "MIT"
+license = "BSD-3-Clause"
 
 build = "bindings/rust/build.rs"
 include = [
