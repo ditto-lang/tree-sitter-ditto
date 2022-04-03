@@ -135,7 +135,7 @@ module.exports = grammar({
     type_call: $ =>
       prec.left(
         seq(
-          field("function", $.type_constructor),
+          field("function", choice($.type_constructor, $.type_variable)),
           field("arguments", $.type_call_arguments)
         )
       ),

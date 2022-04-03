@@ -760,8 +760,17 @@
             "type": "FIELD",
             "name": "function",
             "content": {
-              "type": "SYMBOL",
-              "name": "type_constructor"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "type_constructor"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_variable"
+                }
+              ]
             }
           },
           {

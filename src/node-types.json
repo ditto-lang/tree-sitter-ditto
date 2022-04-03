@@ -695,6 +695,10 @@
           {
             "type": "type_constructor",
             "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
           }
         ]
       }
