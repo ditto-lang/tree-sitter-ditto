@@ -87,6 +87,30 @@ x = a();
       arguments: (expression_call_arguments))))
 
 ================================================================================
+tertiary call
+================================================================================
+module Test exports (..);
+
+x = a(1, 2, 3);
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable)
+      arguments: (expression_call_arguments
+        argument: (expression_int)
+        argument: (expression_int)
+        argument: (expression_int))))
+  (comment))
+
+================================================================================
 curried call
 ================================================================================
 module Test exports (..);
@@ -128,7 +152,8 @@ map = (arr: Array(a), fn: (a) -> b): Array(b) -> [];
         type_annotation: (type_annotation
           (type_call
             function: (type_constructor)
-            argument: (type_variable))))
+            arguments: (type_call_arguments
+              argument: (type_variable)))))
       parameter: (expression_function_parameter
         name: (expression_function_parameter_name)
         type_annotation: (type_annotation
@@ -138,7 +163,8 @@ map = (arr: Array(a), fn: (a) -> b): Array(b) -> [];
       return_type: (return_type_annotation
         (type_call
           function: (type_constructor)
-          argument: (type_variable)))
+          arguments: (type_call_arguments
+            argument: (type_variable))))
       body: (expression_array))))
 
 ================================================================================

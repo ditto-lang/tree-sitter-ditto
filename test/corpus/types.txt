@@ -40,7 +40,7 @@ call
 ================================================================================
 module Test exports (..);
 
-x : R.Result(Int, a) = x;
+x : R.Result(Int, b) = x;
 --------------------------------------------------------------------------------
 
 (source_file
@@ -50,11 +50,12 @@ x : R.Result(Int, a) = x;
   declaration: (value_declaration
     name: (value_declaration_name)
     type_annotation: (type_annotation
-      (type_constructor
-        (qualifier)))
-    (ERROR
-      (type_constructor)
-      (type_variable))
+      (type_call
+        function: (type_constructor
+          (qualifier))
+        arguments: (type_call_arguments
+          argument: (type_constructor)
+          argument: (type_variable))))
     expression: (expression_variable)))
 
 ================================================================================

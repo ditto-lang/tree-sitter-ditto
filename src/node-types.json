@@ -678,6 +678,32 @@
     "type": "type_call",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_call_arguments",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_constructor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_call_arguments",
+    "named": true,
+    "fields": {
       "argument": {
         "multiple": true,
         "required": true,
@@ -708,16 +734,6 @@
           },
           {
             "type": "type_variable",
-            "named": true
-          }
-        ]
-      },
-      "function": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_constructor",
             "named": true
           }
         ]

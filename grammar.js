@@ -136,9 +136,12 @@ module.exports = grammar({
       prec.left(
         seq(
           field("function", $.type_constructor),
-          field("argument", commaSep1($._type))
+          field("arguments", $.type_call_arguments)
         )
       ),
+
+    type_call_arguments: $ =>
+      seq("(", field("argument", commaSep1($._type)), ")"),
 
     type_constructor: $ => $._qualified_proper_name,
 
