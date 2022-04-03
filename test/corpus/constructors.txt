@@ -1,0 +1,54 @@
+================================================================================
+unqualified
+================================================================================
+module Test exports (..);
+
+x = Five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_constructor
+      (expression_constructor_proper_name))))
+
+================================================================================
+qualified
+================================================================================
+module Test exports (..);
+
+x = Four.Five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_constructor
+      (qualifier)
+      (expression_constructor_proper_name))))
+
+================================================================================
+qualified call
+================================================================================
+module Test exports (..);
+
+x = Just(2);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_constructor
+        (expression_constructor_proper_name))
+      arguments: (expression_call_arguments
+        argument: (expression_int)))))

@@ -298,15 +298,24 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "expression_constructor_proper_name",
+          "named": true
+        },
         {
           "type": "qualifier",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "expression_constructor_proper_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "expression_function",
@@ -432,15 +441,24 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "expression_variable_name",
+          "named": true
+        },
         {
           "type": "qualifier",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "expression_variable_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "foreign_value_declaration",
@@ -749,15 +767,24 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "qualifier",
           "named": true
+        },
+        {
+          "type": "type_constructor_proper_name",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "type_constructor_proper_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "type_declaration",

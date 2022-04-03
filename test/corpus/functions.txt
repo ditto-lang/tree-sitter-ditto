@@ -14,7 +14,8 @@ x = (): Int -> 5;
     name: (value_declaration_name)
     expression: (expression_function
       return_type: (return_type_annotation
-        (type_constructor))
+        (type_constructor
+          (type_constructor_proper_name)))
       body: (expression_int))))
 
 ================================================================================
@@ -38,7 +39,8 @@ x = (a: a): a -> a;
           (type_variable)))
       return_type: (return_type_annotation
         (type_variable))
-      body: (expression_variable))))
+      body: (expression_variable
+        (expression_variable_name)))))
 
 ================================================================================
 curried
@@ -66,7 +68,8 @@ x = (a: a): ((b) -> a) -> (b) -> a;
       body: (expression_function
         parameter: (expression_function_parameter
           name: (expression_function_parameter_name))
-        body: (expression_variable)))))
+        body: (expression_variable
+          (expression_variable_name))))))
 
 ================================================================================
 nullary call
@@ -83,7 +86,8 @@ x = a();
   declaration: (value_declaration
     name: (value_declaration_name)
     expression: (expression_call
-      function: (expression_variable)
+      function: (expression_variable
+        (expression_variable_name))
       arguments: (expression_call_arguments))))
 
 ================================================================================
@@ -103,7 +107,8 @@ x = a(1, 2, 3);
   declaration: (value_declaration
     name: (value_declaration_name)
     expression: (expression_call
-      function: (expression_variable)
+      function: (expression_variable
+        (expression_variable_name))
       arguments: (expression_call_arguments
         argument: (expression_int)
         argument: (expression_int)
@@ -127,7 +132,8 @@ x = a()()();
     expression: (expression_call
       function: (expression_call
         function: (expression_call
-          function: (expression_variable)
+          function: (expression_variable
+            (expression_variable_name))
           arguments: (expression_call_arguments))
         arguments: (expression_call_arguments))
       arguments: (expression_call_arguments))))
@@ -151,7 +157,8 @@ map = (arr: Array(a), fn: (a) -> b): Array(b) -> [];
         name: (expression_function_parameter_name)
         type_annotation: (type_annotation
           (type_call
-            function: (type_constructor)
+            function: (type_constructor
+              (type_constructor_proper_name))
             arguments: (type_call_arguments
               argument: (type_variable)))))
       parameter: (expression_function_parameter
@@ -162,7 +169,8 @@ map = (arr: Array(a), fn: (a) -> b): Array(b) -> [];
             return_type: (type_variable))))
       return_type: (return_type_annotation
         (type_call
-          function: (type_constructor)
+          function: (type_constructor
+            (type_constructor_proper_name))
           arguments: (type_call_arguments
             argument: (type_variable))))
       body: (expression_array))))
@@ -182,7 +190,8 @@ x : Int = (() -> () ->  5)()();
   declaration: (value_declaration
     name: (value_declaration_name)
     type_annotation: (type_annotation
-      (type_constructor))
+      (type_constructor
+        (type_constructor_proper_name)))
     expression: (expression_call
       function: (expression_call
         function: (expression_function

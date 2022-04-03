@@ -3,7 +3,7 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.module_name],
-    [$.expression_function_parameter_name, $._qualified_name],
+    [$.expression_function_parameter_name, $.expression_variable_name],
     [$.type_function, $._type_parens],
   ],
 
@@ -143,7 +143,9 @@ module.exports = grammar({
     type_call_arguments: $ =>
       seq("(", field("argument", commaSep1($._type)), ")"),
 
-    type_constructor: $ => $._qualified_proper_name,
+    type_constructor: $ => qualified($, $.type_constructor_proper_name),
+
+    type_constructor_proper_name: $ => $._proper_name,
 
     type_variable: $ => $._name,
 
@@ -225,19 +227,20 @@ module.exports = grammar({
 
     expression_float: $ => /\d+\.\d+/,
 
-    expression_constructor: $ => $._qualified_proper_name,
+    expression_constructor: $ =>
+      qualified($, $.expression_constructor_proper_name),
 
-    expression_variable: $ => $._qualified_name,
+    expression_constructor_proper_name: $ => $._proper_name,
+
+    expression_variable: $ => qualified($, $.expression_variable_name),
+
+    expression_variable_name: $ => $._name,
 
     expression_true: $ => "true",
 
     expression_false: $ => "false",
 
     expression_unit: $ => "unit",
-
-    _qualified_proper_name: $ => seq(optional($.qualifier), $._proper_name),
-
-    _qualified_name: $ => seq(optional($.qualifier), $._name),
 
     qualifier: $ => seq($._proper_name, "."),
 
@@ -250,6 +253,10 @@ module.exports = grammar({
     comment: $ => token(seq(/--/, repeat(/[^\n]/))),
   },
 });
+
+function qualified($, rule) {
+  return seq(optional($.qualifier), rule);
+}
 
 function commaSep(rule) {
   return optional(commaSep1(rule));

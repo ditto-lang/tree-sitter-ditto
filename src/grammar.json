@@ -839,8 +839,29 @@
       ]
     },
     "type_constructor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_constructor_proper_name"
+        }
+      ]
+    },
+    "type_constructor_proper_name": {
       "type": "SYMBOL",
-      "name": "_qualified_proper_name"
+      "name": "_proper_name"
     },
     "type_variable": {
       "type": "SYMBOL",
@@ -1329,12 +1350,54 @@
       "value": "\\d+\\.\\d+"
     },
     "expression_constructor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_constructor_proper_name"
+        }
+      ]
+    },
+    "expression_constructor_proper_name": {
       "type": "SYMBOL",
-      "name": "_qualified_proper_name"
+      "name": "_proper_name"
     },
     "expression_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_variable_name"
+        }
+      ]
+    },
+    "expression_variable_name": {
       "type": "SYMBOL",
-      "name": "_qualified_name"
+      "name": "_name"
     },
     "expression_true": {
       "type": "STRING",
@@ -1347,48 +1410,6 @@
     "expression_unit": {
       "type": "STRING",
       "value": "unit"
-    },
-    "_qualified_proper_name": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "qualifier"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_proper_name"
-        }
-      ]
-    },
-    "_qualified_name": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "qualifier"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_name"
-        }
-      ]
     },
     "qualifier": {
       "type": "SEQ",
@@ -1451,7 +1472,7 @@
     ],
     [
       "expression_function_parameter_name",
-      "_qualified_name"
+      "expression_variable_name"
     ],
     [
       "type_function",

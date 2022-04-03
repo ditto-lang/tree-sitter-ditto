@@ -15,13 +15,15 @@ foreign map_impl : (Array(a), (a) -> b) -> Array(b);
     type_annotation: (type_annotation
       (type_function
         parameter: (type_call
-          function: (type_constructor)
+          function: (type_constructor
+            (type_constructor_proper_name))
           arguments: (type_call_arguments
             argument: (type_variable)))
         parameter: (type_function
           parameter: (type_variable)
           return_type: (type_variable))
         return_type: (type_call
-          function: (type_constructor)
+          function: (type_constructor
+            (type_constructor_proper_name))
           arguments: (type_call_arguments
             argument: (type_variable)))))))

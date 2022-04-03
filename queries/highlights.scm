@@ -46,11 +46,16 @@
 ; types
 (exposing_type_name) @type
 (type_declaration_name) @type
-(type_declaration_constructor_name) @constructor
-(type_constructor) @type
+(type_constructor_proper_name) @type
+(type_function ("->" @type))
+
+; type variables
 (type_declaration_variable) @parameter
 (type_variable) @parameter
-(type_function ("->" @type))
+
+; constructors
+(type_declaration_constructor_name) @constructor
+(expression_constructor_proper_name) @constructor
 
 ; values
 (value_declaration_name) @function

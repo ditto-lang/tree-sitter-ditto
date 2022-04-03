@@ -14,7 +14,8 @@ x : a = x;
     name: (value_declaration_name)
     type_annotation: (type_annotation
       (type_variable))
-    expression: (expression_variable)))
+    expression: (expression_variable
+      (expression_variable_name))))
 
 ================================================================================
 constructor
@@ -32,8 +33,10 @@ x : My.Unit = x;
     name: (value_declaration_name)
     type_annotation: (type_annotation
       (type_constructor
-        (qualifier)))
-    expression: (expression_variable)))
+        (qualifier)
+        (type_constructor_proper_name)))
+    expression: (expression_variable
+      (expression_variable_name))))
 
 ================================================================================
 constructor call
@@ -52,11 +55,14 @@ x : R.Result(Int, b) = x;
     type_annotation: (type_annotation
       (type_call
         function: (type_constructor
-          (qualifier))
+          (qualifier)
+          (type_constructor_proper_name))
         arguments: (type_call_arguments
-          argument: (type_constructor)
+          argument: (type_constructor
+            (type_constructor_proper_name))
           argument: (type_variable))))
-    expression: (expression_variable)))
+    expression: (expression_variable
+      (expression_variable_name))))
 
 ================================================================================
 variable call
@@ -76,9 +82,11 @@ x : f(Int, b) = x;
       (type_call
         function: (type_variable)
         arguments: (type_call_arguments
-          argument: (type_constructor)
+          argument: (type_constructor
+            (type_constructor_proper_name))
           argument: (type_variable))))
-    expression: (expression_variable)))
+    expression: (expression_variable
+      (expression_variable_name))))
 
 ================================================================================
 function
@@ -96,9 +104,12 @@ x : (Int) -> (a, b) -> Int = x;
     name: (value_declaration_name)
     type_annotation: (type_annotation
       (type_function
-        parameter: (type_constructor)
+        parameter: (type_constructor
+          (type_constructor_proper_name))
         return_type: (type_function
           parameter: (type_variable)
           parameter: (type_variable)
-          return_type: (type_constructor))))
-    expression: (expression_variable)))
+          return_type: (type_constructor
+            (type_constructor_proper_name)))))
+    expression: (expression_variable
+      (expression_variable_name))))
