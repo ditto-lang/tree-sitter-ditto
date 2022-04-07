@@ -79,11 +79,43 @@ x = 5;
     expression: (expression_int)))
 
 ================================================================================
+int underscores
+================================================================================
+module Test exports (..);
+
+x = 5_000___000;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_int)))
+
+================================================================================
 float
 ================================================================================
 module Test exports (..);
 
 x = 5.0;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_float)))
+
+================================================================================
+float underscores
+================================================================================
+module Test exports (..);
+
+x = 5_000_000.0__0;
 --------------------------------------------------------------------------------
 
 (source_file

@@ -223,9 +223,9 @@ module.exports = grammar({
 
     expression_string: $ => token(seq('"', repeat(/[^"]/), '"')),
 
-    expression_int: $ => /\d+/,
+    expression_int: $ => /\d[\d_]*/,
 
-    expression_float: $ => /\d+\.\d+/,
+    expression_float: $ => /\d[\d_]*\.\d[\d_]*/,
 
     expression_constructor: $ =>
       qualified($, $.expression_constructor_proper_name),

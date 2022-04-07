@@ -1343,11 +1343,11 @@
     },
     "expression_int": {
       "type": "PATTERN",
-      "value": "\\d+"
+      "value": "\\d[\\d_]*"
     },
     "expression_float": {
       "type": "PATTERN",
-      "value": "\\d+\\.\\d+"
+      "value": "\\d[\\d_]*\\.\\d[\\d_]*"
     },
     "expression_constructor": {
       "type": "SEQ",

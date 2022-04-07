@@ -4362,11 +4362,13 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 70:
       ACCEPT_TOKEN(sym_expression_int);
       if (lookahead == '.') ADVANCE(43);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(70);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          lookahead == '_') ADVANCE(70);
       END_STATE();
     case 71:
       ACCEPT_TOKEN(sym_expression_float);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(71);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          lookahead == '_') ADVANCE(71);
       END_STATE();
     case 72:
       ACCEPT_TOKEN(sym_expression_true);
