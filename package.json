@@ -22,17 +22,21 @@
     "nan": "2.15.0"
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "prettier": "2.6.0",
     "tree-sitter-cli": "0.20.6"
   },
   "scripts": {
     "pretest": "tree-sitter generate",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "dev": "chokidar \"test/**/*\" \"queries/*\" grammar.js --initial -c \"npm run test\""
   },
   "tree-sitter": [
     {
       "scope": "source.ditto",
-      "file-types": ["ditto"]
+      "file-types": [
+        "ditto"
+      ]
     }
   ],
   "prettier": {
