@@ -31,6 +31,12 @@
 ] @keyword
 
 [
+  "if"
+  "then"
+  "else"
+] @conditional
+
+[
   ":"
 ] @operator
 

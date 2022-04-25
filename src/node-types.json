@@ -128,6 +128,10 @@
             "named": true
           },
           {
+            "type": "expression_if",
+            "named": true
+          },
+          {
             "type": "expression_int",
             "named": true
           },
@@ -202,6 +206,10 @@
             "named": true
           },
           {
+            "type": "expression_if",
+            "named": true
+          },
+          {
             "type": "expression_int",
             "named": true
           },
@@ -267,6 +275,10 @@
           },
           {
             "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
             "named": true
           },
           {
@@ -358,6 +370,10 @@
             "named": true
           },
           {
+            "type": "expression_if",
+            "named": true
+          },
+          {
             "type": "expression_int",
             "named": true
           },
@@ -435,6 +451,198 @@
     "type": "expression_function_parameter_name",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "expression_if",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "false_clause": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "true_clause": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "expression_variable",
@@ -1043,6 +1251,10 @@
             "named": true
           },
           {
+            "type": "expression_if",
+            "named": true
+          },
+          {
             "type": "expression_int",
             "named": true
           },
@@ -1144,6 +1356,10 @@
     "named": true
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "exports",
     "named": false
   },
@@ -1176,11 +1392,19 @@
     "named": false
   },
   {
+    "type": "if",
+    "named": false
+  },
+  {
     "type": "import",
     "named": false
   },
   {
     "type": "module",
+    "named": false
+  },
+  {
+    "type": "then",
     "named": false
   },
   {

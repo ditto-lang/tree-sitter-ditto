@@ -172,12 +172,14 @@ module.exports = grammar({
 
     value_declaration_name: $ => $._name,
 
-    _expression: $ => choice($.expression_function, $._expression1),
+    _expression: $ =>
+      choice($.expression_function, $.expression_if, $._expression1),
 
-    _expression1: $ =>
+    _expression1: $ => choice($.expression_call, $._expression0),
+
+    _expression0: $ =>
       choice(
         $._expression_parens,
-        $.expression_call,
         $.expression_string,
         $.expression_array,
         $.expression_int,
@@ -197,6 +199,16 @@ module.exports = grammar({
         field("return_type", optional($.return_type_annotation)),
         "->",
         field("body", $._expression)
+      ),
+
+    expression_if: $ =>
+      seq(
+        "if",
+        field("condition", $._expression),
+        "then",
+        field("true_clause", $._expression),
+        "else",
+        field("false_clause", $._expression)
       ),
 
     expression_function_parameter: $ =>

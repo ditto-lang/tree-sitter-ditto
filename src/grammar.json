@@ -980,6 +980,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expression_if"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_expression1"
         }
       ]
@@ -989,11 +993,20 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression_parens"
+          "name": "expression_call"
         },
         {
           "type": "SYMBOL",
-          "name": "expression_call"
+          "name": "_expression0"
+        }
+      ]
+    },
+    "_expression0": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression_parens"
         },
         {
           "type": "SYMBOL",
@@ -1116,6 +1129,47 @@
         {
           "type": "FIELD",
           "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        }
+      ]
+    },
+    "expression_if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "then"
+        },
+        {
+          "type": "FIELD",
+          "name": "true_clause",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "FIELD",
+          "name": "false_clause",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"

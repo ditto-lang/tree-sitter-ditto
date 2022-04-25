@@ -1,0 +1,55 @@
+================================================================================
+simple
+================================================================================
+module Test exports (..);
+
+five = if true then 5 else 10;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_if
+      condition: (expression_true)
+      true_clause: (expression_int)
+      false_clause: (expression_int))))
+
+================================================================================
+nested
+================================================================================
+module Test exports (..);
+
+five =
+  if if true then 5 else 5 then
+    if true then
+      5
+    else
+      5
+  else if true then
+    5
+  else
+    5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_if
+      condition: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_int)
+        false_clause: (expression_int))
+      true_clause: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_int)
+        false_clause: (expression_int))
+      false_clause: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_int)
+        false_clause: (expression_int)))))

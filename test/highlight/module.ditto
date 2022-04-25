@@ -65,3 +65,8 @@ type Unknown;
 
 foreign null: Unknown;
 -- ^ keyword
+
+silly_if = if true then 5 else 5;
+--         ^ conditional
+--                  ^ conditional
+--                         ^ conditional
