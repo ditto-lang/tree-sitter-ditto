@@ -34,6 +34,8 @@
   "if"
   "then"
   "else"
+  "match"
+  "with"
 ] @conditional
 
 [
@@ -62,10 +64,12 @@
 ; constructors
 (type_declaration_constructor_name) @constructor
 (expression_constructor_proper_name) @constructor
+(pattern_constructor_proper_name) @constructor
 
 ; values
 (value_declaration_name) @function
 (expression_function ("->" @operator))
+(expression_match_arm ("->" @operator))
 
 ; literals
 (expression_string) @string

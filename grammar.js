@@ -173,7 +173,12 @@ module.exports = grammar({
     value_declaration_name: $ => $._name,
 
     _expression: $ =>
-      choice($.expression_function, $.expression_if, $._expression1),
+      choice(
+        $.expression_function,
+        $.expression_if,
+        $.expression_match,
+        $._expression1
+      ),
 
     _expression1: $ => choice($.expression_call, $._expression0),
 
@@ -209,6 +214,28 @@ module.exports = grammar({
         field("true_clause", $._expression),
         "else",
         field("false_clause", $._expression)
+      ),
+
+    expression_match: $ =>
+      // NOTE this right associativity is for consistency with the main ditto parser.
+      // It forces inner match expressions to be wrapped in parens.
+      //
+      // See https://github.com/ditto-lang/ditto/commit/2264de517429da7ad6aa825e3db1cda13c1e98ed
+      prec.right(
+        seq(
+          "match",
+          field("expression", $._expression),
+          "with",
+          field("arm", repeat1($.expression_match_arm))
+        )
+      ),
+
+    expression_match_arm: $ =>
+      seq(
+        "|",
+        field("match_arm_pattern", $._pattern),
+        "->",
+        field("match_arm_expression", $._expression)
       ),
 
     expression_function_parameter: $ =>
@@ -253,6 +280,21 @@ module.exports = grammar({
     expression_false: $ => "false",
 
     expression_unit: $ => "unit",
+
+    _pattern: $ => choice($.pattern_constructor, $.pattern_variable),
+
+    pattern_constructor: $ =>
+      seq(
+        qualified($, $.pattern_constructor_proper_name),
+        optional($.pattern_constructor_fields)
+      ),
+
+    pattern_constructor_proper_name: $ => $._proper_name,
+
+    pattern_constructor_fields: $ =>
+      seq("(", field("field", commaSep($._pattern)), ")"),
+
+    pattern_variable: $ => $._name,
 
     qualifier: $ => seq($._proper_name, "."),
 

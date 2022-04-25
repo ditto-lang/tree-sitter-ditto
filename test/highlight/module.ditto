@@ -34,6 +34,7 @@ type Maybe(a) = Just(a) | Nothing;
 -- <- keyword
 --     ^ type
 --         ^ parameter
+--                ^ constructor
 
 five : Int = 5;
 --      ^ type
@@ -43,6 +44,12 @@ floaty_five : Prim.Float = 5.0;
 --                   ^ type
 --                          ^ float
 fives = [1, 2, 3, 4, 5,];
+
+maybe_five = Just(5);
+--            ^ constructor
+
+qualified_maybe_five = Maybe.Just(5);
+--                       ^ namespace
 
 yes = true; 
 --     ^ boolean
@@ -70,3 +77,7 @@ silly_if = if true then 5 else 5;
 --         ^ conditional
 --                  ^ conditional
 --                         ^ conditional
+silly_match = match five with | Foo.Five -> 5;
+--             ^ conditional
+--                        ^ conditional
+--                                   ^ constructor
