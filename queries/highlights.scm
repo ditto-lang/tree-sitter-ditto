@@ -77,4 +77,4 @@
 (expression_float) @float
 (expression_true) @boolean
 (expression_false) @boolean
-(expression_unit) @func.builtin
+(expression_unit) @none

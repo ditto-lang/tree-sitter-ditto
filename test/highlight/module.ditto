@@ -56,7 +56,7 @@ yes = true;
 no = false;
 --     ^ boolean
 g = unit;
---   ^ func.builtin
+--   ^ none
 
 identity = (a: a): a -> a;
 -- <- function
