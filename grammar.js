@@ -178,8 +178,10 @@ module.exports = grammar({
         $.expression_if,
         $.expression_match,
         $.expression_effect,
-        $._expression1
+        $._expression2
       ),
+
+    _expression2: $ => choice($.expression_right_pipe, $._expression1),
 
     _expression1: $ => choice($.expression_call, $._expression0),
 
@@ -196,6 +198,9 @@ module.exports = grammar({
         $.expression_false,
         $.expression_unit
       ),
+
+    expression_right_pipe: $ =>
+      seq(field("lhs", $._expression2), "|>", field("rhs", $._expression1)),
 
     expression_function: $ =>
       seq(

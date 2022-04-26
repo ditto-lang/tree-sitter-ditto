@@ -78,6 +78,7 @@
 (expression_function ("->" @operator))
 (expression_match_arm ("->" @operator))
 ("<-" @operator)
+("|>" @operator)
 
 ; literals
 (expression_string) @string

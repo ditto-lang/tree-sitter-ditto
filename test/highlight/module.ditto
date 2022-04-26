@@ -67,6 +67,8 @@ bad_map = (xs: Array(a), fn: (a) -> b): Array(b) -> [];
 --              ^ type
 --                                ^ type
 
+pipey_boi = x |> y |> z;
+--            ^ operator
 
 type Unknown;
 

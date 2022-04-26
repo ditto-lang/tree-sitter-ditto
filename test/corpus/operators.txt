@@ -1,0 +1,22 @@
+================================================================================
+right pipe
+================================================================================
+module Test exports (..);
+
+five = x |> y |> z;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_right_pipe
+        lhs: (expression_variable
+          (expression_variable_name))
+        rhs: (expression_variable
+          (expression_variable_name)))
+      rhs: (expression_variable
+        (expression_variable_name)))))
