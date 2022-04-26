@@ -116,6 +116,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -198,6 +202,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -274,6 +282,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -342,6 +354,291 @@
     "fields": {}
   },
   {
+    "type": "expression_effect",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_effect_bind",
+          "named": true
+        },
+        {
+          "type": "expression_effect_expression",
+          "named": true
+        },
+        {
+          "type": "expression_effect_return",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_effect_bind",
+    "named": true,
+    "fields": {
+      "bind_expression": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_match",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "bind_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_effect_bind_name",
+            "named": true
+          }
+        ]
+      },
+      "rest": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_effect_bind",
+            "named": true
+          },
+          {
+            "type": "expression_effect_expression",
+            "named": true
+          },
+          {
+            "type": "expression_effect_return",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_effect_bind_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "expression_effect_expression",
+    "named": true,
+    "fields": {
+      "rest": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression_effect_bind",
+            "named": true
+          },
+          {
+            "type": "expression_effect_expression",
+            "named": true
+          },
+          {
+            "type": "expression_effect_return",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_array",
+          "named": true
+        },
+        {
+          "type": "expression_call",
+          "named": true
+        },
+        {
+          "type": "expression_constructor",
+          "named": true
+        },
+        {
+          "type": "expression_effect",
+          "named": true
+        },
+        {
+          "type": "expression_false",
+          "named": true
+        },
+        {
+          "type": "expression_float",
+          "named": true
+        },
+        {
+          "type": "expression_function",
+          "named": true
+        },
+        {
+          "type": "expression_if",
+          "named": true
+        },
+        {
+          "type": "expression_int",
+          "named": true
+        },
+        {
+          "type": "expression_match",
+          "named": true
+        },
+        {
+          "type": "expression_string",
+          "named": true
+        },
+        {
+          "type": "expression_true",
+          "named": true
+        },
+        {
+          "type": "expression_unit",
+          "named": true
+        },
+        {
+          "type": "expression_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_effect_return",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_array",
+          "named": true
+        },
+        {
+          "type": "expression_call",
+          "named": true
+        },
+        {
+          "type": "expression_constructor",
+          "named": true
+        },
+        {
+          "type": "expression_effect",
+          "named": true
+        },
+        {
+          "type": "expression_false",
+          "named": true
+        },
+        {
+          "type": "expression_float",
+          "named": true
+        },
+        {
+          "type": "expression_function",
+          "named": true
+        },
+        {
+          "type": "expression_if",
+          "named": true
+        },
+        {
+          "type": "expression_int",
+          "named": true
+        },
+        {
+          "type": "expression_match",
+          "named": true
+        },
+        {
+          "type": "expression_string",
+          "named": true
+        },
+        {
+          "type": "expression_true",
+          "named": true
+        },
+        {
+          "type": "expression_unit",
+          "named": true
+        },
+        {
+          "type": "expression_variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression_function",
     "named": true,
     "fields": {
@@ -367,6 +664,10 @@
           },
           {
             "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_effect",
             "named": true
           },
           {
@@ -497,6 +798,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -563,6 +868,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -626,6 +935,10 @@
           },
           {
             "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_effect",
             "named": true
           },
           {
@@ -711,6 +1024,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -780,6 +1097,10 @@
           },
           {
             "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_effect",
             "named": true
           },
           {
@@ -1492,6 +1813,10 @@
             "named": true
           },
           {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
             "type": "expression_false",
             "named": true
           },
@@ -1593,6 +1918,10 @@
     "named": false
   },
   {
+    "type": "<-",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -1611,6 +1940,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "do",
+    "named": false
   },
   {
     "type": "else",
@@ -1665,6 +1998,10 @@
     "named": false
   },
   {
+    "type": "return",
+    "named": false
+  },
+  {
     "type": "then",
     "named": false
   },
@@ -1677,7 +2014,15 @@
     "named": false
   },
   {
+    "type": "{",
+    "named": false
+  },
+  {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

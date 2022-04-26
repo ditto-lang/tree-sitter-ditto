@@ -177,6 +177,7 @@ module.exports = grammar({
         $.expression_function,
         $.expression_if,
         $.expression_match,
+        $.expression_effect,
         $._expression1
       ),
 
@@ -206,6 +207,14 @@ module.exports = grammar({
         field("body", $._expression)
       ),
 
+    expression_function_parameter: $ =>
+      seq(
+        field("name", $.expression_function_parameter_name),
+        field("type_annotation", optional($.type_annotation))
+      ),
+
+    expression_function_parameter_name: $ => $._name,
+
     expression_if: $ =>
       seq(
         "if",
@@ -230,6 +239,34 @@ module.exports = grammar({
         )
       ),
 
+    expression_effect: $ => seq("do", "{", $._expression_effect_statement, "}"),
+
+    _expression_effect_statement: $ =>
+      choice(
+        $.expression_effect_bind,
+        $.expression_effect_expression,
+        $.expression_effect_return
+      ),
+
+    expression_effect_bind: $ =>
+      seq(
+        field("bind_name", $.expression_effect_bind_name),
+        "<-",
+        field("bind_expression", $._expression),
+        ";",
+        field("rest", $._expression_effect_statement)
+      ),
+
+    expression_effect_expression: $ =>
+      seq(
+        $._expression,
+        optional(seq(";", field("rest", $._expression_effect_statement)))
+      ),
+
+    expression_effect_bind_name: $ => $._name,
+
+    expression_effect_return: $ => seq("return", $._expression),
+
     expression_match_arm: $ =>
       seq(
         "|",
@@ -237,14 +274,6 @@ module.exports = grammar({
         "->",
         field("match_arm_expression", $._expression)
       ),
-
-    expression_function_parameter: $ =>
-      seq(
-        field("name", $.expression_function_parameter_name),
-        field("type_annotation", optional($.type_annotation))
-      ),
-
-    expression_function_parameter_name: $ => $._name,
 
     _expression_parens: $ => seq("(", $._expression, ")"),
 

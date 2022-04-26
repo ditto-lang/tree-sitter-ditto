@@ -81,3 +81,11 @@ silly_match = match five with | Foo.Five -> 5;
 --             ^ conditional
 --                        ^ conditional
 --                                   ^ constructor
+
+main = do { 
+  --   ^ keyword
+  input <- get_input;
+  console_log(input);
+  return input
+  -- ^ keyword.return
+};

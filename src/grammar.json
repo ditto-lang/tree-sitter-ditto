@@ -988,6 +988,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expression_effect"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_expression1"
         }
       ]
@@ -1140,6 +1144,39 @@
         }
       ]
     },
+    "expression_function_parameter": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression_function_parameter_name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type_annotation",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type_annotation"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "expression_function_parameter_name": {
+      "type": "SYMBOL",
+      "name": "_name"
+    },
     "expression_if": {
       "type": "SEQ",
       "members": [
@@ -1217,6 +1254,132 @@
         ]
       }
     },
+    "expression_effect": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "do"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_effect_statement"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_expression_effect_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression_effect_bind"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_effect_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_effect_return"
+        }
+      ]
+    },
+    "expression_effect_bind": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "bind_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression_effect_bind_name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "<-"
+        },
+        {
+          "type": "FIELD",
+          "name": "bind_expression",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "FIELD",
+          "name": "rest",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression_effect_statement"
+          }
+        }
+      ]
+    },
+    "expression_effect_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ";"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "rest",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expression_effect_statement"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "expression_effect_bind_name": {
+      "type": "SYMBOL",
+      "name": "_name"
+    },
+    "expression_effect_return": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "return"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
     "expression_match_arm": {
       "type": "SEQ",
       "members": [
@@ -1245,39 +1408,6 @@
           }
         }
       ]
-    },
-    "expression_function_parameter": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "expression_function_parameter_name"
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "type_annotation",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "type_annotation"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "expression_function_parameter_name": {
-      "type": "SYMBOL",
-      "name": "_name"
     },
     "_expression_parens": {
       "type": "SEQ",

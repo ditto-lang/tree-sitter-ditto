@@ -13,6 +13,8 @@
   "]"
   "("
   ")"
+  "{"
+  "}"
 ] @punctuation.bracket
 
 [
@@ -28,7 +30,12 @@
   "as"
   "type"
   "foreign"
+  "do"
 ] @keyword
+
+[
+  "return"
+] @keyword.return
 
 [
   "if"
@@ -70,6 +77,7 @@
 (value_declaration_name) @function
 (expression_function ("->" @operator))
 (expression_match_arm ("->" @operator))
+("<-" @operator)
 
 ; literals
 (expression_string) @string

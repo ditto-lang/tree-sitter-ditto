@@ -1,0 +1,51 @@
+================================================================================
+noop
+================================================================================
+module Test exports (..);
+
+main = do { return unit };
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_effect
+      (expression_effect_return
+        (expression_unit)))))
+
+================================================================================
+simple
+================================================================================
+module Test exports (..);
+
+main = do { 
+  input <- get_input;
+  console_log(input);
+  return input
+};
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_effect
+      (expression_effect_bind
+        bind_name: (expression_effect_bind_name)
+        bind_expression: (expression_variable
+          (expression_variable_name))
+        rest: (expression_effect_expression
+          (expression_call
+            function: (expression_variable
+              (expression_variable_name))
+            arguments: (expression_call_arguments
+              argument: (expression_variable
+                (expression_variable_name))))
+          rest: (expression_effect_return
+            (expression_variable
+              (expression_variable_name))))))))
