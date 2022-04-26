@@ -85,4 +85,4 @@
 (expression_float) @float
 (expression_true) @boolean
 (expression_false) @boolean
-(expression_unit) @none
+(expression_unit) @symbol

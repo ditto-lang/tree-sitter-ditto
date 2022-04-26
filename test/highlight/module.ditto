@@ -56,7 +56,7 @@ yes = true;
 no = false;
 --     ^ boolean
 g = unit;
---   ^ none
+--   ^ symbol
 
 identity = (a: a): a -> a;
 -- <- function
