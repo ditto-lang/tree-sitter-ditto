@@ -19,7 +19,7 @@
   ],
   "license": "BSD-3-Clause",
   "dependencies": {
-    "nan": "2.15.0"
+    "nan": "2.16.0"
   },
   "devDependencies": {
     "chokidar-cli": "3.0.0",
