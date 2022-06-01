@@ -5,7 +5,8 @@ module Test exports (..);
 
 five =
   match expr with
-  | Pattern -> arm_expr;
+  | Pattern -> arm_expr
+  end;
 --------------------------------------------------------------------------------
 
 (source_file
@@ -31,7 +32,8 @@ module Test exports (..);
 five =
   match expr with
   | Pattern0 -> arm_expr
-  | Pattern1 -> arm_expr;
+  | Pattern1 -> arm_expr
+  end;
 --------------------------------------------------------------------------------
 
 (source_file
@@ -62,7 +64,8 @@ module Test exports (..);
 five =
   match expr with
   | A(b) -> arm_expr
-  | A(B, C(d)) -> arm_expr;
+  | A(B, C(d)) -> arm_expr
+  end;
 --------------------------------------------------------------------------------
 
 (source_file
@@ -104,7 +107,9 @@ five =
   | outer0 ->
       match expr with
       | inner0 -> x
-      | inner1 -> y;
+      | inner1 -> y
+      end
+  end;
 --------------------------------------------------------------------------------
 
 (source_file

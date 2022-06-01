@@ -30,6 +30,7 @@
   "as"
   "type"
   "foreign"
+  "fn"
   "do"
 ] @keyword
 
@@ -43,6 +44,7 @@
   "else"
   "match"
   "with"
+  "end"
 ] @conditional
 
 [

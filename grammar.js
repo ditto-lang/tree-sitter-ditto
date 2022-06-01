@@ -1,11 +1,7 @@
 module.exports = grammar({
   name: "ditto",
 
-  conflicts: $ => [
-    [$.module_name],
-    [$.expression_function_parameter_name, $.expression_variable_name],
-    [$.type_function, $._type_parens],
-  ],
+  conflicts: $ => [[$.module_name], [$.type_function, $._type_parens]],
 
   extras: $ => [
     $.comment,
@@ -204,6 +200,7 @@ module.exports = grammar({
 
     expression_function: $ =>
       seq(
+        "fn",
         "(",
         field("parameter", commaSep($.expression_function_parameter)),
         ")",
@@ -240,7 +237,8 @@ module.exports = grammar({
           "match",
           field("expression", $._expression),
           "with",
-          field("arm", repeat1($.expression_match_arm))
+          field("arm", repeat1($.expression_match_arm)),
+          "end"
         )
       ),
 

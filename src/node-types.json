@@ -2156,6 +2156,10 @@
     "named": false
   },
   {
+    "type": "end",
+    "named": false
+  },
+  {
     "type": "exports",
     "named": false
   },
@@ -2182,6 +2186,10 @@
   {
     "type": "expression_unit",
     "named": true
+  },
+  {
+    "type": "fn",
+    "named": false
   },
   {
     "type": "foreign",

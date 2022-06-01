@@ -58,14 +58,16 @@ no = false;
 g = unit;
 --   ^ symbol
 
-identity = (a: a): a -> a;
+identity = fn (a: a): a -> a;
 -- <- function
---             ^ parameter
---                    ^ operator
+--         ^ keyword
+--                ^ parameter
+--                       ^ operator
 
-bad_map = (xs: Array(a), fn: (a) -> b): Array(b) -> [];
---              ^ type
---                                ^ type
+bad_map = fn (xs: Array(a), f: (a) -> b): Array(b) -> [];
+--        ^ keyword
+--                 ^ type
+--                                  ^ type
 
 pipey_boi = x |> y |> z;
 --            ^ operator
@@ -79,10 +81,11 @@ silly_if = if true then 5 else 5;
 --         ^ conditional
 --                  ^ conditional
 --                         ^ conditional
-silly_match = match five with | Foo.Five -> 5;
+silly_match = match five with | Foo.Five -> 5 end;
 --             ^ conditional
 --                        ^ conditional
 --                                   ^ constructor
+--                                             ^ conditional
 
 main = do { 
   --   ^ keyword

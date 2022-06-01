@@ -1097,6 +1097,10 @@
       "members": [
         {
           "type": "STRING",
+          "value": "fn"
+        },
+        {
+          "type": "STRING",
           "value": "("
         },
         {
@@ -1288,6 +1292,10 @@
                 "name": "expression_match_arm"
               }
             }
+          },
+          {
+            "type": "STRING",
+            "value": "end"
           }
         ]
       }
@@ -1881,10 +1889,6 @@
   "conflicts": [
     [
       "module_name"
-    ],
-    [
-      "expression_function_parameter_name",
-      "expression_variable_name"
     ],
     [
       "type_function",
