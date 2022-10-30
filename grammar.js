@@ -228,18 +228,12 @@ module.exports = grammar({
       ),
 
     expression_match: $ =>
-      // NOTE this right associativity is for consistency with the main ditto parser.
-      // It forces inner match expressions to be wrapped in parens.
-      //
-      // See https://github.com/ditto-lang/ditto/commit/2264de517429da7ad6aa825e3db1cda13c1e98ed
-      prec.right(
-        seq(
-          "match",
-          field("expression", $._expression),
-          "with",
-          field("arm", repeat1($.expression_match_arm)),
-          "end"
-        )
+      seq(
+        "match",
+        field("expression", $._expression),
+        "with",
+        field("arm", repeat1($.expression_match_arm)),
+        "end"
       ),
 
     expression_effect: $ => seq("do", "{", $._expression_effect_statement, "}"),

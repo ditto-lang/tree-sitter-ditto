@@ -1261,44 +1261,40 @@
       ]
     },
     "expression_match": {
-      "type": "PREC_RIGHT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "match"
-          },
-          {
-            "type": "FIELD",
-            "name": "expression",
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "match"
+        },
+        {
+          "type": "FIELD",
+          "name": "expression",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "with"
+        },
+        {
+          "type": "FIELD",
+          "name": "arm",
+          "content": {
+            "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
-              "name": "_expression"
+              "name": "expression_match_arm"
             }
-          },
-          {
-            "type": "STRING",
-            "value": "with"
-          },
-          {
-            "type": "FIELD",
-            "name": "arm",
-            "content": {
-              "type": "REPEAT1",
-              "content": {
-                "type": "SYMBOL",
-                "name": "expression_match_arm"
-              }
-            }
-          },
-          {
-            "type": "STRING",
-            "value": "end"
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": "end"
+        }
+      ]
     },
     "expression_effect": {
       "type": "SEQ",
