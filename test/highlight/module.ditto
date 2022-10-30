@@ -36,8 +36,9 @@ type Maybe(a) = Just(a) | Nothing;
 --         ^ parameter
 --                ^ constructor
 
-type alias MaybeInt = Maybe(Int);
+type alias Props(r) = { r | foo: Int };
 --   ^ keyword
+--                      ^ parameter
 
 five : Int = 5;
 --      ^ type
