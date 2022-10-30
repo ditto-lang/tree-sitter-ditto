@@ -115,7 +115,7 @@ x : (Int) -> (a, b) -> Int = x;
       (expression_variable_name))))
 
 ================================================================================
-empty record
+empty closed record
 ================================================================================
 module Test exports (..);
 
@@ -129,12 +129,12 @@ x : {} = x;
   declaration: (value_declaration
     name: (value_declaration_name)
     type_annotation: (type_annotation
-      (type_record))
+      (type_closed_record))
     expression: (expression_variable
       (expression_variable_name))))
 
 ================================================================================
-record
+closed record
 ================================================================================
 module Test exports (..);
 
@@ -148,7 +148,39 @@ x : { foo: Int, bar: Float, baz: Unit } = x;
   declaration: (value_declaration
     name: (value_declaration_name)
     type_annotation: (type_annotation
-      (type_record
+      (type_closed_record
+        field: (type_record_field
+          label: (type_record_field_label)
+          value: (type_constructor
+            (type_constructor_proper_name)))
+        field: (type_record_field
+          label: (type_record_field_label)
+          value: (type_constructor
+            (type_constructor_proper_name)))
+        field: (type_record_field
+          label: (type_record_field_label)
+          value: (type_constructor
+            (type_constructor_proper_name)))))
+    expression: (expression_variable
+      (expression_variable_name))))
+
+================================================================================
+open record
+================================================================================
+module Test exports (..);
+
+x : { r | foo: Int, bar: Float, baz: Unit, } = x;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_open_record
+        (type_open_record_row_variable)
         field: (type_record_field
           label: (type_record_field_label)
           value: (type_constructor

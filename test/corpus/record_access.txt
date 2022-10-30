@@ -1,0 +1,82 @@
+================================================================================
+single access
+================================================================================
+module Test exports (..);
+
+x = foo.bar;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record_access
+      (expression_variable
+        (expression_variable_name))
+      (expression_record_field_label))))
+
+================================================================================
+multiple acccesses
+================================================================================
+module Test exports (..);
+
+x = one.two.three.four;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record_access
+      (expression_record_access
+        (expression_record_access
+          (expression_variable
+            (expression_variable_name))
+          (expression_record_field_label))
+        (expression_record_field_label))
+      (expression_record_field_label))))
+
+================================================================================
+literal access
+================================================================================
+module Test exports (..);
+
+x = {}.foo;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record_access
+      (expression_record)
+      (expression_record_field_label))))
+
+================================================================================
+chained call access
+================================================================================
+module Test exports (..);
+
+x = foo().bar();
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_record_access
+        (expression_call
+          function: (expression_variable
+            (expression_variable_name))
+          arguments: (expression_call_arguments))
+        (expression_record_field_label))
+      arguments: (expression_call_arguments))))

@@ -118,7 +118,8 @@ module.exports = grammar({
       choice(
         $._type_parens,
         $.type_call,
-        $.type_record,
+        $.type_closed_record,
+        $.type_open_record,
         $.type_constructor,
         $.type_variable
       ),
@@ -134,8 +135,19 @@ module.exports = grammar({
 
     _type_parens: $ => seq("(", $._type, ")"),
 
-    type_record: $ =>
+    type_closed_record: $ =>
       seq("{", field("field", commaSep($.type_record_field)), "}"),
+
+    type_open_record: $ =>
+      seq(
+        "{",
+        $.type_open_record_row_variable,
+        "|",
+        field("field", commaSep1($.type_record_field)),
+        "}"
+      ),
+
+    type_open_record_row_variable: $ => $._name,
 
     type_record_field: $ =>
       seq(
@@ -197,17 +209,18 @@ module.exports = grammar({
 
     _expression2: $ => choice($.expression_right_pipe, $._expression1),
 
-    _expression1: $ => choice($.expression_call, $._expression0),
+    _expression1: $ => choice($.expression_constructor, $._expression0),
 
     _expression0: $ =>
       choice(
+        $.expression_call,
+        $.expression_record_access,
         $._expression_parens,
         $.expression_string,
         $.expression_array,
         $.expression_record,
         $.expression_int,
         $.expression_float,
-        $.expression_constructor,
         $.expression_variable,
         $.expression_true,
         $.expression_false,
@@ -314,6 +327,9 @@ module.exports = grammar({
         "=",
         field("value", $._expression)
       ),
+
+    expression_record_access: $ =>
+      seq($._expression0, ".", $.expression_record_field_label),
 
     expression_record_field_label: $ => $._name,
 

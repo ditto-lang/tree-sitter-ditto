@@ -69,6 +69,7 @@
 ; type variables
 (type_declaration_variable) @parameter
 (type_variable) @parameter
+(type_open_record_row_variable) @parameter
 
 ; constructors
 (type_declaration_constructor_name) @constructor
