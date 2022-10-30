@@ -1,5 +1,2 @@
 ; For TODO highlighting etc
-(comment) @comment
-
-; Because ditto documentation comments use markdown
-(comment) @markdown
+((comment) @injection.content (#set! injection.language "comment"))
