@@ -115,7 +115,13 @@ module.exports = grammar({
     _type: $ => choice($.type_function, $._type1),
 
     _type1: $ =>
-      choice($._type_parens, $.type_call, $.type_constructor, $.type_variable),
+      choice(
+        $._type_parens,
+        $.type_call,
+        $.type_record,
+        $.type_constructor,
+        $.type_variable
+      ),
 
     type_function: $ =>
       seq(
@@ -127,6 +133,18 @@ module.exports = grammar({
       ),
 
     _type_parens: $ => seq("(", $._type, ")"),
+
+    type_record: $ =>
+      seq("{", field("field", commaSep($.type_record_field)), "}"),
+
+    type_record_field: $ =>
+      seq(
+        field("label", $.type_record_field_label),
+        ":",
+        field("value", $._type)
+      ),
+
+    type_record_field_label: $ => $._name,
 
     type_call: $ =>
       prec.left(
@@ -186,6 +204,7 @@ module.exports = grammar({
         $._expression_parens,
         $.expression_string,
         $.expression_array,
+        $.expression_record,
         $.expression_int,
         $.expression_float,
         $.expression_constructor,
@@ -285,6 +304,18 @@ module.exports = grammar({
 
     expression_array: $ =>
       seq("[", field("element", commaSep($._expression)), "]"),
+
+    expression_record: $ =>
+      seq("{", field("field", commaSep($.expression_record_field)), "}"),
+
+    expression_record_field: $ =>
+      seq(
+        field("label", $.expression_record_field_label),
+        "=",
+        field("value", $._expression)
+      ),
+
+    expression_record_field_label: $ => $._name,
 
     expression_string: $ => token(seq('"', repeat(/[^"]/), '"')),
 
