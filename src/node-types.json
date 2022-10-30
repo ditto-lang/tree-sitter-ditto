@@ -1944,6 +1944,10 @@
             "named": true
           },
           {
+            "type": "type_alias_declaration",
+            "named": true
+          },
+          {
             "type": "type_declaration",
             "named": true
           },
@@ -1969,6 +1973,70 @@
         "types": [
           {
             "type": "module_import",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_alias_declaration",
+    "named": true,
+    "fields": {
+      "aliased_type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "type_call",
+            "named": true
+          },
+          {
+            "type": "type_closed_record",
+            "named": true
+          },
+          {
+            "type": "type_constructor",
+            "named": true
+          },
+          {
+            "type": "type_function",
+            "named": true
+          },
+          {
+            "type": "type_open_record",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_declaration_name",
+            "named": true
+          }
+        ]
+      },
+      "variables": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_declaration_variables",
             "named": true
           }
         ]
@@ -2625,6 +2693,10 @@
   },
   {
     "type": "]",
+    "named": false
+  },
+  {
+    "type": "alias",
     "named": false
   },
   {

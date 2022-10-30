@@ -32,6 +32,7 @@
   "foreign"
   "fn"
   "do"
+  "alias"
 ] @keyword
 
 [

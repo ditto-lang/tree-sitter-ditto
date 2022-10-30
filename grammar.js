@@ -65,12 +65,24 @@ module.exports = grammar({
     _module_declaration: $ =>
       choice(
         $._type_declaration,
+        $.type_alias_declaration,
         $.foreign_value_declaration,
         $.value_declaration
       ),
 
     _type_declaration: $ =>
       choice($.type_declaration, $.empty_type_declaration),
+
+    type_alias_declaration: $ =>
+      seq(
+        "type",
+        "alias",
+        field("name", $.type_declaration_name),
+        field("variables", optional($.type_declaration_variables)),
+        "=",
+        field("aliased_type", $._type),
+        ";"
+      ),
 
     empty_type_declaration: $ =>
       seq(
