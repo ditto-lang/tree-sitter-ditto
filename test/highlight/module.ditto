@@ -36,6 +36,9 @@ type Maybe(a) = Just(a) | Nothing;
 --         ^ parameter
 --                ^ constructor
 
+type alias MaybeInt = Maybe(Int);
+--   ^ keyword
+
 five : Int = 5;
 --      ^ type
 --           ^ number 
