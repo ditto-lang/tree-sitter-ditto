@@ -1,7 +1,7 @@
 module Foo.Bar exports (..);
--- <- keyword
+-- <- keyword.control.import
 --      ^ namespace
---               ^ keyword
+--               ^ keyword.control.import
 --                       ^ symbol
 
 -- NOTE: btw
@@ -10,13 +10,13 @@ module Foo.Bar exports (..);
 -- FIXME: fix this
 
 import (some-package) Some.Module;
--- <- keyword
+-- <- keyword.control.import
 --                       ^ namespace
 --                        ^ namespace
 --                         ^ namespace
 
 import (some-other-package) Some.Other.Module as SOM;
---                                             ^ keyword
+--                                             ^ keyword.control.import
 --                                                ^ namespace
 
 import Foo (..);
@@ -33,20 +33,20 @@ import Foo.Bar (
 type Maybe(a) = Just(a) | Nothing;
 -- <- keyword
 --     ^ type
---         ^ parameter
+--         ^ variable.parameter
 --                ^ constructor
 
 type alias Props(r) = { r | foo: Int };
 --   ^ keyword
---                      ^ parameter
+--                      ^ variable.parameter
 
 five : Int = 5;
 --      ^ type
---           ^ number 
+--           ^ constant.numeric.integer
 floaty_five : Prim.Float = 5.0;
 --             ^ namespace
 --                   ^ type
---                          ^ float
+--                          ^ constant.numeric.float
 fives = [1, 2, 3, 4, 5,];
 
 maybe_five = Just(5);
@@ -56,16 +56,16 @@ qualified_maybe_five = Maybe.Just(5);
 --                       ^ namespace
 
 yes = true; 
---     ^ boolean
+--     ^ constant.builtin.boolean
 no = false;
---     ^ boolean
+--     ^ constant.builtin.boolean
 g = unit;
---   ^ symbol
+--   ^ constant.builtin
 
 identity = fn (a: a): a -> a;
 -- <- function
 --         ^ keyword
---                ^ parameter
+--                ^ variable.parameter
 --                       ^ operator
 
 bad_map = fn (xs: Array(a), f: (a) -> b): Array(b) -> [];
@@ -82,14 +82,14 @@ foreign null: Unknown;
 -- ^ keyword
 
 silly_if = if true then 5 else 5;
---         ^ conditional
---                  ^ conditional
---                         ^ conditional
+--         ^ keyword.control.conditional
+--                  ^ keyword.control.conditional
+--                         ^ keyword.control.conditional
 silly_match = match five with | Foo.Five -> 5 end;
---             ^ conditional
---                        ^ conditional
+--             ^ keyword.control.conditional
+--                        ^ keyword.control.conditional
 --                                   ^ constructor
---                                             ^ conditional
+--                                             ^ keyword.control.conditional
 
 main = do { 
   --   ^ keyword

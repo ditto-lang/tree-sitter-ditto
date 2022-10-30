@@ -1,10 +1,8 @@
-; Following the nvim-treesitter highlights for now:
-; https://github.com/nvim-treesitter/nvim-treesitter/blob/3a92d77b5684d58d777675c1863d304e0be71250/lua/nvim-treesitter/highlight.lua
-; 
-; See :h nvim-treesitter-highlights
+; Following the helix highlights for now:
+; https://github.com/helix-editor/helix/tree/f41f28b6627bd2ae0152f468cde80df167889a2d/runtime/queries
 ; 
 ; Particularly the Haskell highlight queries:
-; https://github.com/nvim-treesitter/nvim-treesitter/blob/3a92d77b5684d58d777675c1863d304e0be71250/queries/haskell/highlights.scm
+; https://github.com/helix-editor/helix/blob/f41f28b6627bd2ae0152f468cde80df167889a2d/runtime/queries/haskell/highlights.scm
 
 (comment) @comment
 
@@ -28,6 +26,9 @@
   "exports"
   "import"
   "as"
+] @keyword.control.import
+
+[
   "type"
   "foreign"
   "fn"
@@ -46,7 +47,7 @@
   "match"
   "with"
   "end"
-] @conditional
+] @keyword.control.conditional
 
 [
   ":"
@@ -68,9 +69,9 @@
 (type_function ("->" @type))
 
 ; type variables
-(type_declaration_variable) @parameter
-(type_variable) @parameter
-(type_open_record_row_variable) @parameter
+(type_declaration_variable) @variable.parameter
+(type_variable) @variable.parameter
+(type_open_record_row_variable) @variable.parameter
 
 ; constructors
 (type_declaration_constructor_name) @constructor
@@ -86,8 +87,8 @@
 
 ; literals
 (expression_string) @string
-(expression_int) @number
-(expression_float) @float
-(expression_true) @boolean
-(expression_false) @boolean
-(expression_unit) @symbol
+(expression_int) @constant.numeric.integer
+(expression_float) @constant.numeric.float
+(expression_true) @constant.builtin.boolean
+(expression_false) @constant.builtin.boolean
+(expression_unit) @constant.builtin
