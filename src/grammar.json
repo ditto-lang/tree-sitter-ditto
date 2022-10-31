@@ -1421,10 +1421,10 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "pattern",
           "content": {
             "type": "SYMBOL",
-            "name": "expression_function_parameter_name"
+            "name": "_pattern"
           }
         },
         {
@@ -2054,6 +2054,10 @@
         {
           "type": "SYMBOL",
           "name": "pattern_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pattern_unused"
         }
       ]
     },
@@ -2165,6 +2169,10 @@
       "type": "SYMBOL",
       "name": "_name"
     },
+    "pattern_unused": {
+      "type": "SYMBOL",
+      "name": "_unused_name"
+    },
     "qualifier": {
       "type": "SEQ",
       "members": [
@@ -2189,6 +2197,10 @@
     "_name": {
       "type": "PATTERN",
       "value": "\\p{Ll}[_\\d\\p{L}]*"
+    },
+    "_unused_name": {
+      "type": "PATTERN",
+      "value": "_\\p{Ll}[_\\d\\p{L}]*"
     },
     "comment": {
       "type": "TOKEN",

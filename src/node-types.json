@@ -826,12 +826,20 @@
     "type": "expression_function_parameter",
     "named": true,
     "fields": {
-      "name": {
+      "pattern": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "expression_function_parameter_name",
+            "type": "pattern_constructor",
+            "named": true
+          },
+          {
+            "type": "pattern_unused",
+            "named": true
+          },
+          {
+            "type": "pattern_variable",
             "named": true
           }
         ]
@@ -847,11 +855,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "expression_function_parameter_name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "expression_if",
@@ -1295,6 +1298,10 @@
         "types": [
           {
             "type": "pattern_constructor",
+            "named": true
+          },
+          {
+            "type": "pattern_unused",
             "named": true
           },
           {
@@ -1870,6 +1877,10 @@
             "named": true
           },
           {
+            "type": "pattern_unused",
+            "named": true
+          },
+          {
             "type": "pattern_variable",
             "named": true
           }
@@ -1879,6 +1890,11 @@
   },
   {
     "type": "pattern_constructor_proper_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "pattern_unused",
     "named": true,
     "fields": {}
   },

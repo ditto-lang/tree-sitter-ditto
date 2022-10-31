@@ -34,11 +34,33 @@ x = fn (a: a): a -> a;
     name: (value_declaration_name)
     expression: (expression_function
       parameter: (expression_function_parameter
-        name: (expression_function_parameter_name)
+        pattern: (pattern_variable)
         type_annotation: (type_annotation
           (type_variable)))
       return_type: (return_type_annotation
         (type_variable))
+      body: (expression_variable
+        (expression_variable_name)))))
+
+================================================================================
+always
+================================================================================
+module Test exports (..);
+
+x = fn (a, _b) -> a;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      parameter: (expression_function_parameter
+        pattern: (pattern_variable))
+      parameter: (expression_function_parameter
+        pattern: (pattern_unused))
       body: (expression_variable
         (expression_variable_name)))))
 
@@ -58,7 +80,7 @@ x = fn (a: a): ((b) -> a) -> fn (b) -> a;
     name: (value_declaration_name)
     expression: (expression_function
       parameter: (expression_function_parameter
-        name: (expression_function_parameter_name)
+        pattern: (pattern_variable)
         type_annotation: (type_annotation
           (type_variable)))
       return_type: (return_type_annotation
@@ -67,7 +89,7 @@ x = fn (a: a): ((b) -> a) -> fn (b) -> a;
           return_type: (type_variable)))
       body: (expression_function
         parameter: (expression_function_parameter
-          name: (expression_function_parameter_name))
+          pattern: (pattern_variable))
         body: (expression_variable
           (expression_variable_name))))))
 
@@ -154,7 +176,7 @@ map = fn (arr: Array(a), f: (a) -> b): Array(b) -> [];
     name: (value_declaration_name)
     expression: (expression_function
       parameter: (expression_function_parameter
-        name: (expression_function_parameter_name)
+        pattern: (pattern_variable)
         type_annotation: (type_annotation
           (type_call
             function: (type_constructor
@@ -162,7 +184,7 @@ map = fn (arr: Array(a), f: (a) -> b): Array(b) -> [];
             arguments: (type_call_arguments
               argument: (type_variable)))))
       parameter: (expression_function_parameter
-        name: (expression_function_parameter_name)
+        pattern: (pattern_variable)
         type_annotation: (type_annotation
           (type_function
             parameter: (type_variable)

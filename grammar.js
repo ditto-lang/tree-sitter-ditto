@@ -255,7 +255,7 @@ module.exports = grammar({
 
     expression_function_parameter: $ =>
       seq(
-        field("name", $.expression_function_parameter_name),
+        field("pattern", $._pattern),
         field("type_annotation", optional($.type_annotation))
       ),
 
@@ -366,7 +366,8 @@ module.exports = grammar({
 
     expression_unit: $ => "unit",
 
-    _pattern: $ => choice($.pattern_constructor, $.pattern_variable),
+    _pattern: $ =>
+      choice($.pattern_constructor, $.pattern_variable, $.pattern_unused),
 
     pattern_constructor: $ =>
       seq(
@@ -381,6 +382,8 @@ module.exports = grammar({
 
     pattern_variable: $ => $._name,
 
+    pattern_unused: $ => $._unused_name,
+
     qualifier: $ => seq($._proper_name, "."),
 
     _proper_name: $ => /\p{Lu}[_\d\p{L}]*/,
@@ -388,6 +391,8 @@ module.exports = grammar({
     _package_name: $ => /\p{Ll}[-\d\p{L}]*/,
 
     _name: $ => /\p{Ll}[_\d\p{L}]*/,
+
+    _unused_name: $ => /_\p{Ll}[_\d\p{L}]*/,
 
     comment: $ => token(seq(/--/, repeat(/[^\n]/))),
   },
