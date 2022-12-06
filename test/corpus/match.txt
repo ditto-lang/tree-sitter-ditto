@@ -64,7 +64,7 @@ module Test exports (..);
 five =
   match expr with
   | A(b) -> arm_expr
-  | A(B, C(d)) -> arm_expr
+  | A(B, C(d), _e, _) -> arm_expr
   end;
 --------------------------------------------------------------------------------
 
@@ -93,7 +93,9 @@ five =
             field: (pattern_constructor
               (pattern_constructor_proper_name)
               (pattern_constructor_fields
-                field: (pattern_variable)))))
+                field: (pattern_variable)))
+            field: (pattern_unused)
+            field: (pattern_unused)))
         match_arm_expression: (expression_variable
           (expression_variable_name))))))
 

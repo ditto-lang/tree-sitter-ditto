@@ -421,7 +421,7 @@ module.exports = grammar({
 
     _name: $ => /\p{Ll}[_\d\p{L}]*/,
 
-    _unused_name: $ => /_\p{Ll}[_\d\p{L}]*/,
+    _unused_name: $ => /_[_\d\p{L}]*/,
 
     comment: $ => token(seq(/--/, repeat(/[^\n]/))),
   },

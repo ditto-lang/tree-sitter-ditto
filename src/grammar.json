@@ -2348,7 +2348,7 @@
     },
     "_unused_name": {
       "type": "PATTERN",
-      "value": "_\\p{Ll}[_\\d\\p{L}]*"
+      "value": "_[_\\d\\p{L}]*"
     },
     "comment": {
       "type": "TOKEN",
