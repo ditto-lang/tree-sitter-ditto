@@ -286,6 +286,7 @@ module.exports = grammar({
     _expression_effect_statement: $ =>
       choice(
         $.expression_effect_bind,
+        $.expression_effect_let,
         $.expression_effect_expression,
         $.expression_effect_return
       ),
@@ -297,6 +298,22 @@ module.exports = grammar({
         field("bind_expression", $._expression),
         ";",
         field("rest", $._expression_effect_statement)
+      ),
+
+    expression_effect_let: $ =>
+      seq(
+        "let",
+        field("let_binder", $.expression_effect_let_binder),
+        "=",
+        field("let_expression", $._expression),
+        ";",
+        field("rest", $._expression_effect_statement)
+      ),
+
+    expression_effect_let_binder: $ =>
+      seq(
+        field("pattern", $._pattern),
+        field("type_annotation", optional($.type_annotation))
       ),
 
     expression_effect_expression: $ =>

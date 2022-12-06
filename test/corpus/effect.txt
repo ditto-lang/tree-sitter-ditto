@@ -23,6 +23,7 @@ module Test exports (..);
 
 main = do { 
   input <- get_input;
+  let five : Int = 5;
   console_log(input);
   return input
 };
@@ -39,13 +40,20 @@ main = do {
         bind_name: (expression_effect_bind_name)
         bind_expression: (expression_variable
           (expression_variable_name))
-        rest: (expression_effect_expression
-          (expression_call
-            function: (expression_variable
-              (expression_variable_name))
-            arguments: (expression_call_arguments
-              argument: (expression_variable
-                (expression_variable_name))))
-          rest: (expression_effect_return
-            (expression_variable
-              (expression_variable_name))))))))
+        rest: (expression_effect_let
+          let_binder: (expression_effect_let_binder
+            pattern: (pattern_variable)
+            type_annotation: (type_annotation
+              (type_constructor
+                (type_constructor_proper_name))))
+          let_expression: (expression_int)
+          rest: (expression_effect_expression
+            (expression_call
+              function: (expression_variable
+                (expression_variable_name))
+              arguments: (expression_call_arguments
+                argument: (expression_variable
+                  (expression_variable_name))))
+            rest: (expression_effect_return
+              (expression_variable
+                (expression_variable_name)))))))))

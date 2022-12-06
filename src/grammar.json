@@ -1560,6 +1560,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expression_effect_let"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expression_effect_expression"
         },
         {
@@ -1601,6 +1605,76 @@
           "content": {
             "type": "SYMBOL",
             "name": "_expression_effect_statement"
+          }
+        }
+      ]
+    },
+    "expression_effect_let": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "FIELD",
+          "name": "let_binder",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression_effect_let_binder"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "let_expression",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "FIELD",
+          "name": "rest",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression_effect_statement"
+          }
+        }
+      ]
+    },
+    "expression_effect_let_binder": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "pattern",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_pattern"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type_annotation",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type_annotation"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         }
       ]

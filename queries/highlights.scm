@@ -34,6 +34,7 @@
   "fn"
   "do"
   "alias"
+  "let"
 ] @keyword
 
 [

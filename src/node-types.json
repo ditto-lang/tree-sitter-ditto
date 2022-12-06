@@ -418,6 +418,10 @@
           "named": true
         },
         {
+          "type": "expression_effect_let",
+          "named": true
+        },
+        {
           "type": "expression_effect_return",
           "named": true
         }
@@ -537,6 +541,10 @@
             "named": true
           },
           {
+            "type": "expression_effect_let",
+            "named": true
+          },
+          {
             "type": "expression_effect_return",
             "named": true
           }
@@ -563,6 +571,10 @@
           },
           {
             "type": "expression_effect_expression",
+            "named": true
+          },
+          {
+            "type": "expression_effect_let",
             "named": true
           },
           {
@@ -649,6 +661,164 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "expression_effect_let",
+    "named": true,
+    "fields": {
+      "let_binder": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_effect_let_binder",
+            "named": true
+          }
+        ]
+      },
+      "let_expression": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expression_array",
+            "named": true
+          },
+          {
+            "type": "expression_call",
+            "named": true
+          },
+          {
+            "type": "expression_constructor",
+            "named": true
+          },
+          {
+            "type": "expression_effect",
+            "named": true
+          },
+          {
+            "type": "expression_false",
+            "named": true
+          },
+          {
+            "type": "expression_float",
+            "named": true
+          },
+          {
+            "type": "expression_function",
+            "named": true
+          },
+          {
+            "type": "expression_if",
+            "named": true
+          },
+          {
+            "type": "expression_int",
+            "named": true
+          },
+          {
+            "type": "expression_match",
+            "named": true
+          },
+          {
+            "type": "expression_record",
+            "named": true
+          },
+          {
+            "type": "expression_record_access",
+            "named": true
+          },
+          {
+            "type": "expression_record_update",
+            "named": true
+          },
+          {
+            "type": "expression_right_pipe",
+            "named": true
+          },
+          {
+            "type": "expression_string",
+            "named": true
+          },
+          {
+            "type": "expression_true",
+            "named": true
+          },
+          {
+            "type": "expression_unit",
+            "named": true
+          },
+          {
+            "type": "expression_variable",
+            "named": true
+          }
+        ]
+      },
+      "rest": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression_effect_bind",
+            "named": true
+          },
+          {
+            "type": "expression_effect_expression",
+            "named": true
+          },
+          {
+            "type": "expression_effect_let",
+            "named": true
+          },
+          {
+            "type": "expression_effect_return",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression_effect_let_binder",
+    "named": true,
+    "fields": {
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pattern_constructor",
+            "named": true
+          },
+          {
+            "type": "pattern_unused",
+            "named": true
+          },
+          {
+            "type": "pattern_variable",
+            "named": true
+          }
+        ]
+      },
+      "type_annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_annotation",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2951,6 +3121,10 @@
   },
   {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "let",
     "named": false
   },
   {
