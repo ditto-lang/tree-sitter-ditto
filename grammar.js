@@ -230,6 +230,7 @@ module.exports = grammar({
         $._expression_parens,
         $.expression_string,
         $.expression_array,
+        $.expression_record_update,
         $.expression_record,
         $.expression_int,
         $.expression_float,
@@ -332,6 +333,17 @@ module.exports = grammar({
 
     expression_record: $ =>
       seq("{", field("field", commaSep($.expression_record_field)), "}"),
+
+    expression_record_update: $ =>
+      seq(
+        "{",
+        field("target", $._expression_record_update_target),
+        "|",
+        field("field", commaSep1($.expression_record_field)),
+        "}"
+      ),
+
+    _expression_record_update_target: $ => $._expression1,
 
     expression_record_field: $ =>
       seq(
