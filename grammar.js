@@ -210,7 +210,11 @@ module.exports = grammar({
 
     value_declaration_name: $ => $._name,
 
-    _expression: $ =>
+    _expression: $ => $._expression4,
+
+    _expression4: $ => choice($.expression_let, $._expression3),
+
+    _expression3: $ =>
       choice(
         $.expression_function,
         $.expression_if,
@@ -238,6 +242,23 @@ module.exports = grammar({
         $.expression_true,
         $.expression_false,
         $.expression_unit
+      ),
+
+    expression_let: $ =>
+      seq(
+        "let",
+        repeat1($.expression_let_value_declaration),
+        "in",
+        $._expression
+      ),
+
+    expression_let_value_declaration: $ =>
+      seq(
+        field("binder", $._pattern),
+        field("type_annotation", optional($.type_annotation)),
+        "=",
+        field("expression", $._expression),
+        ";"
       ),
 
     expression_right_pipe: $ =>
@@ -318,7 +339,7 @@ module.exports = grammar({
 
     expression_effect_expression: $ =>
       seq(
-        $._expression,
+        $._expression3, // `let` expressions should parse as `expression_effect_let`
         optional(seq(";", field("rest", $._expression_effect_statement)))
       ),
 

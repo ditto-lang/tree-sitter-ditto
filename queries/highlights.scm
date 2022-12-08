@@ -35,6 +35,7 @@
   "do"
   "alias"
   "let"
+  "in"
 ] @keyword
 
 [
@@ -81,6 +82,8 @@
 
 ; values
 (value_declaration_name) @function
+(pattern_variable) @variable
+(expression_variable_name) @variable
 (expression_function ("->" @operator))
 (expression_match_arm ("->" @operator))
 ("<-" @operator)

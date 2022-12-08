@@ -67,9 +67,11 @@ identity = fn (a: a): a -> a;
 --         ^ keyword
 --                ^ variable.parameter
 --                       ^ operator
+--                         ^ variable
 
 bad_map = fn (xs: Array(a), f: (a) -> b): Array(b) -> [];
 --        ^ keyword
+--            ^ variable
 --                 ^ type
 --                                  ^ type
 
@@ -91,9 +93,18 @@ silly_match = match five with | Foo.Five -> 5 end;
 --                                   ^ constructor
 --                                             ^ keyword.control.conditional
 
+
+tens = let ten: Int = 10 in [ten, ten, ten];
+--     ^ keyword
+--         ^ variable
+--                       ^ keyword
+
 main = do { 
   --   ^ keyword
   input <- get_input;
+  let five: Int = 5;
+  -- <- keyword
+  --          ^ type
   console_log(input);
   return input
   -- ^ keyword.return

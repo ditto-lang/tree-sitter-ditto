@@ -1194,6 +1194,23 @@
       "name": "_name"
     },
     "_expression": {
+      "type": "SYMBOL",
+      "name": "_expression4"
+    },
+    "_expression4": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression_let"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression3"
+        }
+      ]
+    },
+    "_expression3": {
       "type": "CHOICE",
       "members": [
         {
@@ -1298,6 +1315,75 @@
         {
           "type": "SYMBOL",
           "name": "expression_unit"
+        }
+      ]
+    },
+    "expression_let": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression_let_value_declaration"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "expression_let_value_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "binder",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_pattern"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type_annotation",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type_annotation"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "expression",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -1684,7 +1770,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "_expression3"
         },
         {
           "type": "CHOICE",
