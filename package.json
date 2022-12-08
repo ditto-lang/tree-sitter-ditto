@@ -29,7 +29,7 @@
   "scripts": {
     "pretest": "tree-sitter generate",
     "test": "tree-sitter test",
-    "dev": "chokidar \"test/**/*\" \"queries/*\" grammar.js --initial -c \"npm run test\""
+    "dev": "chokidar \"test/**/*\" \"queries/*\" grammar.js --initial -c \"npm test\""
   },
   "tree-sitter": [
     {
