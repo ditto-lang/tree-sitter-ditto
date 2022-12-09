@@ -1,9 +1,3 @@
-; Following the helix highlights for now:
-; https://github.com/helix-editor/helix/tree/f41f28b6627bd2ae0152f468cde80df167889a2d/runtime/queries
-; 
-; Particularly the Haskell highlight queries:
-; https://github.com/helix-editor/helix/blob/f41f28b6627bd2ae0152f468cde80df167889a2d/runtime/queries/haskell/highlights.scm
-
 (comment) @comment
 
 [
