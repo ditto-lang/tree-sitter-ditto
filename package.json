@@ -29,14 +29,12 @@
   "scripts": {
     "pretest": "tree-sitter generate",
     "test": "tree-sitter test",
-    "dev": "chokidar \"test/**/*\" \"queries/*\" grammar.js --initial -c \"npm test\""
+    "dev": "chokidar grammar.js rules test queries --initial -c \"npm test\""
   },
   "tree-sitter": [
     {
       "scope": "source.ditto",
-      "file-types": [
-        "ditto"
-      ]
+      "file-types": ["ditto"]
     }
   ],
   "prettier": {

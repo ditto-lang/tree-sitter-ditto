@@ -1,0 +1,177 @@
+================================================================================
+nullary
+================================================================================
+module Test exports (..);
+
+x = f();
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments))))
+
+================================================================================
+unary
+================================================================================
+module Test exports (..);
+
+x = f(y);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments
+        argument: (expression_variable
+          (expression_variable_name))))))
+
+================================================================================
+binary
+================================================================================
+module Test exports (..);
+
+x = f(y, z);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments
+        argument: (expression_variable
+          (expression_variable_name))
+        argument: (expression_variable
+          (expression_variable_name))))))
+
+================================================================================
+redundant parens
+================================================================================
+module Test exports (..);
+
+x = f((y), ((z)));
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments
+        argument: (expression_variable
+          (expression_variable_name))
+        argument: (expression_variable
+          (expression_variable_name))))))
+
+================================================================================
+trailing comma
+================================================================================
+module Test exports (..);
+
+x = f(y, );
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments
+        argument: (expression_variable
+          (expression_variable_name))))))
+
+================================================================================
+multiline
+================================================================================
+module Test exports (..);
+
+x = f(
+  5,
+  5,
+  5
+);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_variable
+        (expression_variable_name))
+      arguments: (expression_call_arguments
+        argument: (expression_int)
+        argument: (expression_int)
+        argument: (expression_int)))))
+
+================================================================================
+constructor
+================================================================================
+module Test exports (..);
+
+x = Pair(0, 0);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_constructor
+        (expression_constructor_proper_name))
+      arguments: (expression_call_arguments
+        argument: (expression_int)
+        argument: (expression_int)))))
+
+================================================================================
+iife
+================================================================================
+module Test exports (..);
+
+x = (fn (x) -> x)(y);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_call
+      function: (expression_function
+        parameter: (expression_function_parameter
+          pattern: (pattern_variable))
+        body: (expression_variable
+          (expression_variable_name)))
+      arguments: (expression_call_arguments
+        argument: (expression_variable
+          (expression_variable_name))))))

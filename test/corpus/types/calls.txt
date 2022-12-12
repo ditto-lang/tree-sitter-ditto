@@ -1,0 +1,110 @@
+================================================================================
+unary variable
+================================================================================
+module Test exports (..);
+
+x : f(y) = true;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_call
+        function: (type_variable)
+        arguments: (type_call_arguments
+          argument: (type_variable))))
+    expression: (expression_true)))
+
+================================================================================
+binary variable
+================================================================================
+module Test exports (..);
+
+x : f(y, z) = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_call
+        function: (type_variable)
+        arguments: (type_call_arguments
+          argument: (type_variable)
+          argument: (type_variable))))
+    expression: (expression_int)))
+
+================================================================================
+unary constructor
+================================================================================
+module Test exports (..);
+
+x : Foo(y) = true;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_call
+        function: (type_constructor
+          (type_constructor_proper_name))
+        arguments: (type_call_arguments
+          argument: (type_variable))))
+    expression: (expression_true)))
+
+================================================================================
+binary constructor
+================================================================================
+module Test exports (..);
+
+x : Foo(y, z) = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_call
+        function: (type_constructor
+          (type_constructor_proper_name))
+        arguments: (type_call_arguments
+          argument: (type_variable)
+          argument: (type_variable))))
+    expression: (expression_int)))
+
+================================================================================
+trailing comma
+================================================================================
+module Test exports (..);
+
+x : Foo(y, z, ) = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_call
+        function: (type_constructor
+          (type_constructor_proper_name))
+        arguments: (type_call_arguments
+          argument: (type_variable)
+          argument: (type_variable))))
+    expression: (expression_int)))

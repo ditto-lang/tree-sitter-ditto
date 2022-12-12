@@ -1,0 +1,155 @@
+================================================================================
+chained
+================================================================================
+module Test exports (..);
+
+five = x |> f0 |> f1 |> f2 |> f3;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_right_pipe
+        lhs: (expression_right_pipe
+          lhs: (expression_right_pipe
+            lhs: (expression_variable
+              (expression_variable_name))
+            rhs: (expression_variable
+              (expression_variable_name)))
+          rhs: (expression_variable
+            (expression_variable_name)))
+        rhs: (expression_variable
+          (expression_variable_name)))
+      rhs: (expression_variable
+        (expression_variable_name)))))
+
+================================================================================
+chained explicit associativity
+================================================================================
+module Test exports (..);
+
+five = (((x |> f0) |> f1) |> f2) |> f3;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_right_pipe
+        lhs: (expression_right_pipe
+          lhs: (expression_right_pipe
+            lhs: (expression_variable
+              (expression_variable_name))
+            rhs: (expression_variable
+              (expression_variable_name)))
+          rhs: (expression_variable
+            (expression_variable_name)))
+        rhs: (expression_variable
+          (expression_variable_name)))
+      rhs: (expression_variable
+        (expression_variable_name)))))
+
+================================================================================
+call
+================================================================================
+module Test exports (..);
+
+five = x |> y(z);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_variable
+        (expression_variable_name))
+      rhs: (expression_call
+        function: (expression_variable
+          (expression_variable_name))
+        arguments: (expression_call_arguments
+          argument: (expression_variable
+            (expression_variable_name)))))))
+
+================================================================================
+qualified call
+================================================================================
+module Test exports (..);
+
+five = x |> SomeModule.y(z);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_variable
+        (expression_variable_name))
+      rhs: (expression_call
+        function: (expression_variable
+          (qualifier)
+          (expression_variable_name))
+        arguments: (expression_call_arguments
+          argument: (expression_variable
+            (expression_variable_name)))))))
+
+================================================================================
+accessed call
+================================================================================
+module Test exports (..);
+
+five = x |> some_record.y(z);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_variable
+        (expression_variable_name))
+      rhs: (expression_call
+        function: (expression_record_access
+          (expression_variable
+            (expression_variable_name))
+          (expression_record_field_label))
+        arguments: (expression_call_arguments
+          argument: (expression_variable
+            (expression_variable_name)))))))
+
+================================================================================
+inline fn
+================================================================================
+module Test exports (..);
+
+five = x |> (fn (y) -> y);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_right_pipe
+      lhs: (expression_variable
+        (expression_variable_name))
+      rhs: (expression_function
+        parameter: (expression_function_parameter
+          pattern: (pattern_variable))
+        body: (expression_variable
+          (expression_variable_name))))))

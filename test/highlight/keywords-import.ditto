@@ -1,0 +1,7 @@
+module Test exports (..);
+-- ^ keyword.control.import
+--            ^ keyword.control.import
+
+import Foo as F;
+-- ^ keyword.control.import
+--          ^ keyword.control.import

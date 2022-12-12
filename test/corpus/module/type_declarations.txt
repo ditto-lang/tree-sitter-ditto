@@ -1,0 +1,106 @@
+================================================================================
+Unit
+================================================================================
+module Test exports (..);
+
+type Unit = Unit;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (type_declaration
+    name: (type_declaration_name)
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name))))
+
+================================================================================
+Bool
+================================================================================
+module Test exports (..);
+
+type Bool = True | False;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (type_declaration
+    name: (type_declaration_name)
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name))
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name))))
+
+================================================================================
+Maybe
+================================================================================
+module Test exports (..);
+
+type Maybe(a) = 
+  | Just(a)
+  | Nothing;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (type_declaration
+    name: (type_declaration_name)
+    variables: (type_declaration_variables
+      variable: (type_declaration_variable))
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name)
+      fields: (type_declaration_constructor_fields
+        field: (type_variable)))
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name))))
+
+================================================================================
+Result
+================================================================================
+module Test exports (..);
+
+type Result(a, e) = 
+  | Ok(a)
+  | Err(e);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (type_declaration
+    name: (type_declaration_name)
+    variables: (type_declaration_variables
+      variable: (type_declaration_variable)
+      variable: (type_declaration_variable))
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name)
+      fields: (type_declaration_constructor_fields
+        field: (type_variable)))
+    constructor: (type_declaration_constructor
+      name: (type_declaration_constructor_name)
+      fields: (type_declaration_constructor_fields
+        field: (type_variable)))))
+
+================================================================================
+Unknown
+================================================================================
+module Test exports (..);
+
+type Unknown(a, e);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (type_declaration_empty
+    name: (type_declaration_name)
+    variables: (type_declaration_variables
+      variable: (type_declaration_variable)
+      variable: (type_declaration_variable))))

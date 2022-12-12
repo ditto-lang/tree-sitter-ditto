@@ -1,0 +1,11 @@
+module Test exports (..);
+
+bool = fn (b, x, y) -> if b then x else y;
+--                     ^ keyword.control.conditional
+--                           ^ keyword.control.conditional
+--                                  ^ keyword.control.conditional
+
+unwrap = fn (wrapped) -> match wrapped with Wrapped(x) -> x end;
+--                        ^ keyword.control.conditional
+--                                      ^ keyword.control.conditional
+--                                                           ^ keyword.control.conditional

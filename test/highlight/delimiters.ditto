@@ -1,0 +1,10 @@
+module Test exports ( .. );
+--                        ^ punctuation.delimiter
+
+fives = [5, 5, 5]
+--        ^ punctuation.delimiter
+--           ^ punctuation.delimiter
+
+type ABC = A | B | C ;
+--           ^ punctuation.delimiter
+--               ^ punctuation.delimiter

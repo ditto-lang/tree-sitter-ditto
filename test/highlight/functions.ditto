@@ -1,0 +1,8 @@
+module Test exports (
+    five,
+    -- <- function
+    
+);
+
+five = 5;
+-- <- function
