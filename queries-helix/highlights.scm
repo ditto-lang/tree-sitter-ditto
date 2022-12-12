@@ -46,47 +46,59 @@
 ] @keyword.control.conditional
 
 [
-  ":"
-] @operator
-
-[
   (exposing_everything)
-  (exposing_type_constructors)
+  (exposing_list_item_type_constructors)
 ] @symbol
 
-(module_name) @namespace
-(module_import_alias) @namespace
-(qualifier) @namespace
+[
+  (module_name)
+  (module_import_alias)
+  (qualifier) 
+] @namespace
 
-; types
-(exposing_type_name) @type
-(type_declaration_name) @type
-(type_constructor_proper_name) @type
-(type_function ("->" @type))
+[
+  (exposing_list_item_type_name)
+  (type_declaration_name)
+  (type_constructor_proper_name)
+  (type_function ("->"))
+] @type
 
-; type variables
-(type_declaration_variable) @variable.parameter
-(type_variable) @variable.parameter
-(type_open_record_row_variable) @variable.parameter
+[
+  (type_declaration_variable)
+  (type_variable)
+  (type_open_record_row_variable)
+] @variable.parameter
 
-; constructors
-(type_declaration_constructor_name) @constructor
-(expression_constructor_proper_name) @constructor
-(pattern_constructor_proper_name) @constructor
+[
+  (type_declaration_constructor_name)
+  (expression_constructor_proper_name)
+  (pattern_constructor_proper_name)
+] @variable.other.member
 
-; values
-(value_declaration_name) @function
-(pattern_variable) @variable
-(expression_variable_name) @variable
-(expression_function ("->" @operator))
-(expression_match_arm ("->" @operator))
-("<-" @operator)
-("|>" @operator)
+[
+  (value_declaration_name) 
+  (exposing_list_item_value)
+] @function
 
-; literals
+[
+  (pattern_variable)
+  (expression_variable_name) 
+] @variable
+
+[
+  ":"
+  "<-"
+  "|>"
+  (expression_function ("->"))
+  (expression_match_arm ("->"))
+] @operator
+
 (expression_string) @string
+
 (expression_int) @constant.numeric.integer
+
 (expression_float) @constant.numeric.float
-(expression_true) @constant.builtin.boolean
-(expression_false) @constant.builtin.boolean
+
+[(expression_true) (expression_false)] @constant.builtin.boolean
+
 (expression_unit) @constant.builtin

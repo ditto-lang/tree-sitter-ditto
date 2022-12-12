@@ -1,0 +1,16 @@
+================================================================================
+nested
+================================================================================
+module Test exports (..);
+x : ((((((a)))))) = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_variable))
+    expression: (expression_int)))

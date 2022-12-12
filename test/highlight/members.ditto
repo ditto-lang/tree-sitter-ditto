@@ -1,0 +1,15 @@
+module Test exports (..);
+
+type Maybe(a) = Nothing | Just(a);
+--              ^ variable.other.member
+--                         ^ variable.other.member
+
+nothing = Nothing;
+--           ^ variable.other.member
+
+is_just = fn (mb) -> match mb with 
+    | Maybe.Just(_) -> true 
+    --        ^ variable.other.member
+    | Nothing -> false;
+    -- ^ variable.other.member
+    end;

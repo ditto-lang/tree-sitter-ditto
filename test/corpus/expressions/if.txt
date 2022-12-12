@@ -1,0 +1,61 @@
+================================================================================
+simple
+================================================================================
+module Test exports (..);
+
+x = if true then x else y;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_if
+      condition: (expression_true)
+      true_clause: (expression_variable
+        (expression_variable_name))
+      false_clause: (expression_variable
+        (expression_variable_name)))))
+
+================================================================================
+nested
+================================================================================
+module Test exports (..);
+
+x = 
+  if 
+    if true then yes else no
+  then 
+    if true then yes else no 
+  else 
+    if true then yes else no 
+;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_if
+      condition: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_variable
+          (expression_variable_name))
+        false_clause: (expression_variable
+          (expression_variable_name)))
+      true_clause: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_variable
+          (expression_variable_name))
+        false_clause: (expression_variable
+          (expression_variable_name)))
+      false_clause: (expression_if
+        condition: (expression_true)
+        true_clause: (expression_variable
+          (expression_variable_name))
+        false_clause: (expression_variable
+          (expression_variable_name))))))

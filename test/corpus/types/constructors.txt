@@ -1,0 +1,57 @@
+================================================================================
+unqualified
+================================================================================
+module Test exports (..);
+
+x : Foo1_bar234 = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor
+        (type_constructor_proper_name)))
+    expression: (expression_int)))
+
+================================================================================
+qualified
+================================================================================
+module Test exports (..);
+
+x : SomeModule.Foo1_bar234 = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor
+        (qualifier)
+        (type_constructor_proper_name)))
+    expression: (expression_int)))
+
+================================================================================
+trailing underscore
+================================================================================
+module Test exports (..);
+
+x : Foo_ = 5;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_constructor
+        (type_constructor_proper_name)))
+    expression: (expression_int)))

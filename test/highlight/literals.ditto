@@ -1,0 +1,16 @@
+module Test exports (..);
+
+literals = [
+    "string",
+    -- <- string
+    5,
+    -- <- constant.numeric.integer
+    5.0,
+    -- <- constant.numeric.float
+    true,
+    -- <- constant.builtin.boolean
+    false,
+    -- <- constant.builtin.boolean
+    unit,
+    -- <- constant.builtin
+];

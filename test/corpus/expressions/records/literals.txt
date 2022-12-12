@@ -1,0 +1,138 @@
+================================================================================
+empty
+================================================================================
+module Test exports (..);
+
+x = {};
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record)))
+
+================================================================================
+single item
+================================================================================
+module Test exports (..);
+
+x = { foo = 5 };
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int)))))
+
+================================================================================
+multiple items
+================================================================================
+module Test exports (..);
+
+x = { foo = 5, bar = 5, baz = 5 };
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int))
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int))
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int)))))
+
+================================================================================
+trailing comma
+================================================================================
+module Test exports (..);
+
+x = { foo = 5,};
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int)))))
+
+================================================================================
+multiline
+================================================================================
+module Test exports (..);
+
+x = {
+  foo = 5,
+  bar = 5, 
+  baz = 5,
+};
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int))
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int))
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_int)))))
+
+================================================================================
+nested
+================================================================================
+module Test exports (..);
+
+x = {
+  foo = {
+    bar = {
+        bar = {}
+    }, 
+  },
+};
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_record
+      field: (expression_record_field
+        label: (expression_record_field_label)
+        value: (expression_record
+          field: (expression_record_field
+            label: (expression_record_field_label)
+            value: (expression_record
+              field: (expression_record_field
+                label: (expression_record_field_label)
+                value: (expression_record)))))))))

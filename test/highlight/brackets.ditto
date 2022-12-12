@@ -1,0 +1,10 @@
+module Test exports ( .. );
+--                  ^ punctuation.bracket
+--                       ^ punctuation.bracket
+
+
+brackets = [ { } ];
+--         ^ punctuation.bracket
+--           ^ punctuation.bracket
+--             ^ punctuation.bracket
+--               ^ punctuation.bracket

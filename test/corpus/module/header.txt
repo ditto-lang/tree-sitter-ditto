@@ -1,0 +1,42 @@
+================================================================================
+short module name
+================================================================================
+module Test exports (..);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything)))
+
+================================================================================
+long module name
+================================================================================
+module A.B.C_DE.F exports (..);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything)))
+
+================================================================================
+explicit exports
+================================================================================
+module A.B.C_DE.F exports (
+  foo,
+  Bar,
+  Baz(..),
+);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_list
+      (exposing_list_item_value)
+      (exposing_list_item_type
+        (exposing_list_item_type_name))
+      (exposing_list_item_type
+        (exposing_list_item_type_name)
+        (exposing_list_item_type_constructors)))))

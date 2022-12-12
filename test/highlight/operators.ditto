@@ -1,0 +1,24 @@
+module Test exports (..);
+
+identity = fn (a: a) -> a;
+--              ^ operator
+--                    ^ operator
+
+is_just = fn (mb: Maybe(a)): Bool -> 
+    --                             ^ operator
+    match mb with
+    | Just(_) -> true
+    --         ^ operator
+    | _ -> false
+    --   ^ operator
+    end;
+
+main = do {
+    five <- read_five;
+    --    ^ operator
+    
+    let another_five : Int = five |> identity;
+    --               ^ operator
+    --                            ^ operator
+    return unit;
+};

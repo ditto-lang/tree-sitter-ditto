@@ -1,0 +1,119 @@
+================================================================================
+nullary
+================================================================================
+module Test exports (..);
+
+x : () -> Bool = five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_function
+        return_type: (type_constructor
+          (type_constructor_proper_name))))
+    expression: (expression_variable
+      (expression_variable_name))))
+
+================================================================================
+unary
+================================================================================
+module Test exports (..);
+
+x : (Int) -> Bool = five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_function
+        parameter: (type_constructor
+          (type_constructor_proper_name))
+        return_type: (type_constructor
+          (type_constructor_proper_name))))
+    expression: (expression_variable
+      (expression_variable_name))))
+
+================================================================================
+binary
+================================================================================
+module Test exports (..);
+
+x : (Int, String) -> Bool = five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_function
+        parameter: (type_constructor
+          (type_constructor_proper_name))
+        parameter: (type_constructor
+          (type_constructor_proper_name))
+        return_type: (type_constructor
+          (type_constructor_proper_name))))
+    expression: (expression_variable
+      (expression_variable_name))))
+
+================================================================================
+trailing comma
+================================================================================
+module Test exports (..);
+
+x : (Int, String) -> Bool = five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    type_annotation: (type_annotation
+      (type_function
+        parameter: (type_constructor
+          (type_constructor_proper_name))
+        parameter: (type_constructor
+          (type_constructor_proper_name))
+        return_type: (type_constructor
+          (type_constructor_proper_name))))
+    expression: (expression_variable
+      (expression_variable_name))))
+
+================================================================================
+return type
+================================================================================
+module Test exports (..);
+
+x = fn (): ((Int, String) -> Bool) -> five;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_function
+      return_type: (return_type_annotation
+        (type_function
+          parameter: (type_constructor
+            (type_constructor_proper_name))
+          parameter: (type_constructor
+            (type_constructor_proper_name))
+          return_type: (type_constructor
+            (type_constructor_proper_name))))
+      body: (expression_variable
+        (expression_variable_name)))))

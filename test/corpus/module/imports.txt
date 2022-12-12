@@ -1,0 +1,127 @@
+================================================================================
+everything qualified
+================================================================================
+module Test exports (..);
+
+import Foo;
+import Foo.Bar;
+import (some-pkg) Some.Module;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  import: (module_import
+    module_name: (module_name))
+  import: (module_import
+    module_name: (module_name))
+  import: (module_import
+    package: (module_import_package)
+    module_name: (module_name)))
+
+================================================================================
+aliased
+================================================================================
+module Test exports (..);
+
+import Foo as F;
+import Foo.Bar as FB;
+import (some-pkg) Some.Module as SM;
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  import: (module_import
+    module_name: (module_name)
+    alias: (module_import_alias))
+  import: (module_import
+    module_name: (module_name)
+    alias: (module_import_alias))
+  import: (module_import
+    package: (module_import_package)
+    module_name: (module_name)
+    alias: (module_import_alias)))
+
+================================================================================
+explicit imports
+================================================================================
+module Test exports (..);
+
+import Foo (
+  foo
+);
+
+import Foo.Bar (
+  Bar,
+);
+
+import (some-pkg) Some.Module (
+  Baz(..)
+);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  import: (module_import
+    module_name: (module_name)
+    imports: (exposing_list
+      (exposing_list_item_value)))
+  import: (module_import
+    module_name: (module_name)
+    imports: (exposing_list
+      (exposing_list_item_type
+        (exposing_list_item_type_name))))
+  import: (module_import
+    package: (module_import_package)
+    module_name: (module_name)
+    imports: (exposing_list
+      (exposing_list_item_type
+        (exposing_list_item_type_name)
+        (exposing_list_item_type_constructors)))))
+
+================================================================================
+explicit imports with alias
+================================================================================
+module Test exports (..);
+
+import Foo as F (
+  foo
+);
+
+import Foo.Bar as FB (
+  Bar,
+);
+
+import (some-pkg) Some.Module as SM (
+  Baz(..)
+);
+--------------------------------------------------------------------------------
+
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  import: (module_import
+    module_name: (module_name)
+    alias: (module_import_alias)
+    imports: (exposing_list
+      (exposing_list_item_value)))
+  import: (module_import
+    module_name: (module_name)
+    alias: (module_import_alias)
+    imports: (exposing_list
+      (exposing_list_item_type
+        (exposing_list_item_type_name))))
+  import: (module_import
+    package: (module_import_package)
+    module_name: (module_name)
+    alias: (module_import_alias)
+    imports: (exposing_list
+      (exposing_list_item_type
+        (exposing_list_item_type_name)
+        (exposing_list_item_type_constructors)))))

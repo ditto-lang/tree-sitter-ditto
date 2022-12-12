@@ -1,0 +1,12 @@
+module Test exports (..);
+
+type Maybe(a) = Nothing | Just(a);
+--         ^ variable.parameter
+--                             ^ variable.parameter
+
+id = fn (a: a): a -> a;
+--          ^ variable.parameter
+--              ^ variable.parameter
+
+update_foo = fn (r: { r | foo: Int }) -> { r | foo = 5 };
+--                    ^ variable.parameter
