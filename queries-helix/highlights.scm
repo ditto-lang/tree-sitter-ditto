@@ -46,8 +46,7 @@
 ] @keyword.control.conditional
 
 [
-  (exposing_everything)
-  (exposing_list_item_type_constructors)
+  ".."
 ] @symbol
 
 [
