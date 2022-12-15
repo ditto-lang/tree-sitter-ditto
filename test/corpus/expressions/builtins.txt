@@ -1,26 +1,47 @@
 ================================================================================
 true
 ================================================================================
-true
+module Test exports (..);
+
+x = true;
 --------------------------------------------------------------------------------
 
-(ERROR
-  (expression_true))
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_true)))
 
 ================================================================================
 false
 ================================================================================
-false
+module Test exports (..);
+
+x = false;
 --------------------------------------------------------------------------------
 
-(ERROR
-  (expression_false))
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_false)))
 
 ================================================================================
 unit
 ================================================================================
-unit
+module Test exports (..);
+
+x = unit;
 --------------------------------------------------------------------------------
 
-(ERROR
-  (expression_unit))
+(source_file
+  header: (module_header
+    module_name: (module_name)
+    exports: (exposing_everything))
+  declaration: (value_declaration
+    name: (value_declaration_name)
+    expression: (expression_unit)))

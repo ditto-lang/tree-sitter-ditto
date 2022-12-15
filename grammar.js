@@ -1,6 +1,9 @@
 module.exports = grammar({
   name: "ditto",
 
+  // https://tree-sitter.github.io/tree-sitter/creating-parsers#keyword-extraction
+  word: $ => $._name,
+
   conflicts: $ => [[$.module_name], [$.type_function, $._type_parens]],
 
   extras: $ => [

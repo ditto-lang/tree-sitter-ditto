@@ -1,5 +1,6 @@
 {
   "name": "ditto",
+  "word": "_name",
   "rules": {
     "source_file": {
       "type": "SEQ",
