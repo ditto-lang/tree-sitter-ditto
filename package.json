@@ -24,7 +24,7 @@
   "devDependencies": {
     "chokidar-cli": "3.0.0",
     "prettier": "2.6.0",
-    "tree-sitter-cli": "0.20.6"
+    "tree-sitter-cli": "0.20.7"
   },
   "scripts": {
     "pretest": "tree-sitter generate",
@@ -34,7 +34,9 @@
   "tree-sitter": [
     {
       "scope": "source.ditto",
-      "file-types": ["ditto"]
+      "file-types": [
+        "ditto"
+      ]
     }
   ],
   "prettier": {
