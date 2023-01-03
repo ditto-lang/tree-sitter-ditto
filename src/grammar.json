@@ -1796,10 +1796,6 @@
         }
       ]
     },
-    "expression_function_parameter_name": {
-      "type": "SYMBOL",
-      "name": "_name"
-    },
     "expression_if": {
       "type": "SEQ",
       "members": [

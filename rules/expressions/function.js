@@ -18,6 +18,4 @@ module.exports = {
       field("pattern", $._pattern),
       field("type_annotation", optional($.type_annotation))
     ),
-
-  expression_function_parameter_name: $ => $._name,
 };
