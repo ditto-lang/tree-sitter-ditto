@@ -1,8 +1,8 @@
-module Test exports (..);
+module Test exports (..)
 --                   ^ symbol
 
 import Maybe (
     Maybe(..),
     --    ^ symbol
 
-);
+)

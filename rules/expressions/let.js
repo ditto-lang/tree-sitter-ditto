@@ -13,7 +13,6 @@ module.exports = {
       field("binder", $._pattern),
       field("type_annotation", optional($.type_annotation)),
       "=",
-      field("expression", $._expression),
-      ";"
+      field("expression", $._expression)
     ),
 };

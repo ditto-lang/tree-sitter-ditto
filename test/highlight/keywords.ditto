@@ -1,23 +1,23 @@
-module Test exports (..);
+module Test exports (..)
 
-type Foo = Foo;
+type Foo = Foo
 -- <- keyword
 
-type alias F = Foo;
+type alias F = Foo
 --    ^ keyword
 
-foreign is_eq_impl : (Int, Int) -> Bool;
+foreign is_eq_impl : (Int, Int) -> Bool
 -- <- keyword
 
-identity = fn (a) -> a;
+identity = fn (a) -> a
 --         ^ keyword
 
-main = do { return unit };
+main = do { return unit }
 --     ^ keyword
 
-fives = let five = 5; in [five, five, five];
+fives = let five = 5; in [five, five, five]
 --      ^ keyword
 --                    ^ keyword
 
-main = do { return unit };
+main = do { return unit }
 --           ^ keyword.return

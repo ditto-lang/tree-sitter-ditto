@@ -1,9 +1,9 @@
 ================================================================================
 single binding
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
-test = let five = 5; in unit;
+test = let five = 5 in unit
 --------------------------------------------------------------------------------
 
 (source_file
@@ -21,9 +21,9 @@ test = let five = 5; in unit;
 ================================================================================
 single binding type annotated
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
-test = let five: Int = 5; in unit;
+test = let five: Int = 5 in unit
 --------------------------------------------------------------------------------
 
 (source_file
@@ -44,15 +44,15 @@ test = let five: Int = 5; in unit;
 ================================================================================
 multiple bindings
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
 test =
     let
-        five: Int = 5;
-        six = 6;
-        seven = 7;
+        five: Int = 5
+        six = 6
+        seven = 7
     in
-    unit;
+    unit
 --------------------------------------------------------------------------------
 
 (source_file
@@ -79,14 +79,14 @@ test =
 ================================================================================
 pattern binders
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
 test = 
     let
-        Wrapped(five) = wrapped_five;
-        Pair(six, seven) : Pair(Int, Int) = pair;
+        Wrapped(five) = wrapped_five
+        Pair(six, seven) : Pair(Int, Int) = pair
     in
-    unit;
+    unit
 --------------------------------------------------------------------------------
 
 (source_file

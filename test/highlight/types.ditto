@@ -3,13 +3,13 @@ module Test exports (
     -- <- type
     Bar(..),
     -- <- type
-);
+)
 
-type alias T = SomeModule.T(Int);
+type alias T = SomeModule.T(Int)
 --         ^ type
 --                        ^ type
 --                           ^ type
 
 
-type alias Identity(a) = (a) -> a;
+type alias Identity(a) = (a) -> a
 --                           ^ type

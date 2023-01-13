@@ -1,14 +1,14 @@
-module Test exports (..);
+module Test exports (..)
 --      ^ namespace
 
 
-import Some.Module as SM;
+import Some.Module as SM
 --      ^ namespace
 --                    ^ namespace
 
-id = SM.identity;
+id = SM.identity
 --   ^ namespace
 
-unwrap = fn (SM.Pair(x, y)) -> [x, y, SM.z];
+unwrap = fn (SM.Pair(x, y)) -> [x, y, SM.z]
 --           ^ namespace
 --                                     ^ namespace

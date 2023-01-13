@@ -1,10 +1,12 @@
-module Test exports ( .. );
---                        ^ punctuation.delimiter
+module Test exports ( .. )
 
 fives = [5, 5, 5]
 --        ^ punctuation.delimiter
 --           ^ punctuation.delimiter
 
-type ABC = A | B | C ;
+type ABC = A | B | C
 --           ^ punctuation.delimiter
 --               ^ punctuation.delimiter
+
+main = do { stuff(); return unit }
+--                 ^ punctuation.delimiter

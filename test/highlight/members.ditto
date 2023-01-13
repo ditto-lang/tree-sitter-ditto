@@ -1,10 +1,10 @@
-module Test exports (..);
+module Test exports (..)
 
-type Maybe(a) = Nothing | Just(a);
+type Maybe(a) = Nothing | Just(a)
 --              ^ variable.other.member
 --                         ^ variable.other.member
 
-nothing = Nothing;
+nothing = Nothing
 --           ^ variable.other.member
 
 is_just = fn (mb) -> match mb with 
@@ -12,4 +12,4 @@ is_just = fn (mb) -> match mb with
     --        ^ variable.other.member
     | Nothing -> false;
     -- ^ variable.other.member
-    end;
+    end

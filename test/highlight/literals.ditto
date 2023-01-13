@@ -1,4 +1,4 @@
-module Test exports (..);
+module Test exports (..)
 
 literals = [
     "string",
@@ -13,4 +13,4 @@ literals = [
     -- <- constant.builtin.boolean
     unit,
     -- <- constant.builtin
-];
+]

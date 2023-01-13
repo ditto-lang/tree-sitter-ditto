@@ -1,11 +1,11 @@
 ================================================================================
 everything qualified
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
-import Foo;
-import Foo.Bar;
-import (some-pkg) Some.Module;
+import Foo
+import Foo.Bar
+import (some-pkg) Some.Module
 --------------------------------------------------------------------------------
 
 (source_file
@@ -23,11 +23,11 @@ import (some-pkg) Some.Module;
 ================================================================================
 aliased
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
-import Foo as F;
-import Foo.Bar as FB;
-import (some-pkg) Some.Module as SM;
+import Foo as F
+import Foo.Bar as FB
+import (some-pkg) Some.Module as SM
 --------------------------------------------------------------------------------
 
 (source_file
@@ -48,19 +48,19 @@ import (some-pkg) Some.Module as SM;
 ================================================================================
 explicit imports
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
 import Foo (
   foo
-);
+)
 
 import Foo.Bar (
   Bar,
-);
+)
 
 import (some-pkg) Some.Module (
   Baz(..)
-);
+)
 --------------------------------------------------------------------------------
 
 (source_file
@@ -87,19 +87,19 @@ import (some-pkg) Some.Module (
 ================================================================================
 explicit imports with alias
 ================================================================================
-module Test exports (..);
+module Test exports (..)
 
 import Foo as F (
   foo
-);
+)
 
 import Foo.Bar as FB (
   Bar,
-);
+)
 
 import (some-pkg) Some.Module as SM (
   Baz(..)
-);
+)
 --------------------------------------------------------------------------------
 
 (source_file

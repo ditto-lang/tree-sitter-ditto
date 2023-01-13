@@ -7,8 +7,7 @@ module.exports = {
       "module",
       field("module_name", $.module_name),
       "exports",
-      field("exports", $._exposing),
-      ";"
+      field("exports", $._exposing)
     ),
 
   module_name: $ => sep1($._proper_name, "."),
@@ -20,8 +19,7 @@ module.exports = {
       field("package", optional($.module_import_package)),
       field("module_name", $.module_name),
       field("alias", optional(seq("as", $.module_import_alias))),
-      field("imports", optional($._exposing)),
-      ";"
+      field("imports", optional($._exposing))
     ),
 
   module_import_package: $ => seq("(", $._package_name, ")"),
