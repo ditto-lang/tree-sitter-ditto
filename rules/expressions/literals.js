@@ -6,7 +6,10 @@ module.exports = {
     seq("[", field("element", commaSep($._expression)), "]"),
 
   // "this is a string"
-  expression_string: $ => token(seq('"', repeat(/[^"]/), '"')),
+  expression_string: $ =>
+    // Regex credit: https://stackoverflow.com/a/10786066
+
+    /"([^"\\]*(\\.[^"\\]*)*)"/,
 
   // 50_000
   expression_int: $ => /\d[\d_]*/,
